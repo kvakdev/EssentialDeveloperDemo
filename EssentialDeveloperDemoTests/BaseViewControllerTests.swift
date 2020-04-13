@@ -14,6 +14,16 @@ enum SpyUIEvents {
     case didLoad, willAppear, didAppear, willDissappear
 }
 
+class ResultCollector<T> {
+    private let _disposeBag = DisposeBag()
+    var values: [T] = []
+    init(observable: PublishSubject<T>) {
+        observable.subscribe(onNext: { [weak self] value in
+            self?.values.append(value)
+        }).disposed(by: _disposeBag)
+    }
+}
+
 class BaseViewModelSpy: ViewModelProtocol {
     let events: PublishSubject<BaseUIEvents> = .init()
     let spyEvents: PublishSubject<SpyUIEvents> = .init()
@@ -47,6 +57,13 @@ class BaseViewControllerTests: XCTestCase {
         }).disposed(by: _disposeBag)
         _ = sut.view
         wait(for: [exp], timeout: 1)
+    }
+    
+    func test_withResultCollector() {
+        let (sut, vm) = makeSUT()
+        let resultCollector = ResultCollector(observable: vm.spyEvents)
+        _ = sut.view
+        XCTAssertEqual(resultCollector.values, [.didLoad])
     }
     
     func makeSUT() -> (BaseVC<BaseViewModelSpy>, BaseViewModelSpy) {
