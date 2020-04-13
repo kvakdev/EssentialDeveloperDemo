@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class ResultCollector<T> {
+class ResultBag<T> {
     private let _disposeBag = DisposeBag()
     var values: [T] = []
     

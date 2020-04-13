@@ -17,7 +17,8 @@
 		931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */; };
 		931A4419244422D000017466 /* RequisitesPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */; };
 		931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441A2444235800017466 /* BaseViewControllerTests.swift */; };
-		931A441D24443B5600017466 /* ResultCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441C24443B5600017466 /* ResultCollector.swift */; };
+		931A441D24443B5600017466 /* ResultBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441C24443B5600017466 /* ResultBag.swift */; };
+		931A441F24443F4A00017466 /* BaseViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441E24443F4A00017466 /* BaseViewModelSpy.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -46,7 +47,8 @@
 		931A440F24441E5200017466 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesPaymentViewModel.swift; sourceTree = "<group>"; };
 		931A441A2444235800017466 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
-		931A441C24443B5600017466 /* ResultCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollector.swift; sourceTree = "<group>"; };
+		931A441C24443B5600017466 /* ResultBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBag.swift; sourceTree = "<group>"; };
+		931A441E24443F4A00017466 /* BaseViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelSpy.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,23 @@
 			path = RequisitesPayments;
 			sourceTree = "<group>";
 		};
+		931A442024443F8C00017466 /* BaseViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				931A441A2444235800017466 /* BaseViewControllerTests.swift */,
+				931A441E24443F4A00017466 /* BaseViewModelSpy.swift */,
+			);
+			path = BaseViewControllerTests;
+			sourceTree = "<group>";
+		};
+		931A442124443FA000017466 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				931A441C24443B5600017466 /* ResultBag.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		939D64372441F98200F634E3 = {
 			isa = PBXGroup;
 			children = (
@@ -152,10 +171,10 @@
 		939D64592441F98400F634E3 /* EssentialDeveloperDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				939D64662441FE2800F634E3 /* UIModules */,
+				939D64662441FE2800F634E3 /* ProductionModule */,
 				939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */,
-				931A441A2444235800017466 /* BaseViewControllerTests.swift */,
-				931A441C24443B5600017466 /* ResultCollector.swift */,
+				931A442024443F8C00017466 /* BaseViewControllerTests */,
+				931A442124443FA000017466 /* Helpers */,
 				939D645C2441F98400F634E3 /* Info.plist */,
 			);
 			path = EssentialDeveloperDemoTests;
@@ -170,14 +189,14 @@
 			path = "Initial files";
 			sourceTree = "<group>";
 		};
-		939D64662441FE2800F634E3 /* UIModules */ = {
+		939D64662441FE2800F634E3 /* ProductionModule */ = {
 			isa = PBXGroup;
 			children = (
 				931A44152444227D00017466 /* RequisitesPayments */,
 				931A440A24441D8000017466 /* Base */,
 				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
 			);
-			path = UIModules;
+			path = ProductionModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,9 +401,10 @@
 				931A440E24441E3400017466 /* BaseViewModel.swift in Sources */,
 				931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */,
 				931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */,
+				931A441F24443F4A00017466 /* BaseViewModelSpy.swift in Sources */,
 				931A441124441EB900017466 /* RequisitesViewController.swift in Sources */,
 				931A441024441E5200017466 /* ViewModelProtocol.swift in Sources */,
-				931A441D24443B5600017466 /* ResultCollector.swift in Sources */,
+				931A441D24443B5600017466 /* ResultBag.swift in Sources */,
 				931A441424441F3700017466 /* BaseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
