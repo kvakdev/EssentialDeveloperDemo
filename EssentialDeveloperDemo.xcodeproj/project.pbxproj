@@ -14,11 +14,14 @@
 		931A441224441F2E00017466 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A440D24441E3400017466 /* BaseViewModel.swift */; };
 		931A441324441F3400017466 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A440F24441E5200017466 /* ViewModelProtocol.swift */; };
 		931A441424441F3700017466 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A440B24441D9500017466 /* BaseVC.swift */; };
+		931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */; };
+		931A4419244422D000017466 /* RequisitesPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */; };
+		931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441A2444235800017466 /* BaseViewControllerTests.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
 		939D64502441F98400F634E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 939D644E2441F98400F634E3 /* LaunchScreen.storyboard */; };
-		939D645B2441F98400F634E3 /* EssentialDeveloperDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D645A2441F98400F634E3 /* EssentialDeveloperDemoTests.swift */; };
+		939D645B2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */; };
 		9EB561AE1DB83D7A89F4C276 /* Pods_EssentialDeveloperDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EB1C65D99BC1F24E111424 /* Pods_EssentialDeveloperDemoTests.framework */; };
 		E3AF4C37AC4440E3C3E1ABEA /* Pods_EssentialDeveloperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1340EA0DA3DEAF8F1D1B1C0 /* Pods_EssentialDeveloperDemo.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,8 @@
 		931A440B24441D9500017466 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		931A440D24441E3400017466 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		931A440F24441E5200017466 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesPaymentViewModel.swift; sourceTree = "<group>"; };
+		931A441A2444235800017466 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +52,7 @@
 		939D644F2441F98400F634E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		939D64512441F98400F634E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		939D64562441F98400F634E3 /* EssentialDeveloperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialDeveloperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		939D645A2441F98400F634E3 /* EssentialDeveloperDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialDeveloperDemoTests.swift; sourceTree = "<group>"; };
+		939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesPaymentViewModelTests.swift; sourceTree = "<group>"; };
 		939D645C2441F98400F634E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5EB1C65D99BC1F24E111424 /* Pods_EssentialDeveloperDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssentialDeveloperDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7846CB1BEE3A3A0A577E9D4 /* Pods-EssentialDeveloperDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssentialDeveloperDemo.debug.xcconfig"; path = "Target Support Files/Pods-EssentialDeveloperDemo/Pods-EssentialDeveloperDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +109,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		931A44152444227D00017466 /* RequisitesPayments */ = {
+			isa = PBXGroup;
+			children = (
+				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
+			);
+			path = RequisitesPayments;
+			sourceTree = "<group>";
+		};
 		939D64372441F98200F634E3 = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				939D64662441FE2800F634E3 /* UIModules */,
-				939D645A2441F98400F634E3 /* EssentialDeveloperDemoTests.swift */,
+				939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */,
+				931A441A2444235800017466 /* BaseViewControllerTests.swift */,
 				939D645C2441F98400F634E3 /* Info.plist */,
 			);
 			path = EssentialDeveloperDemoTests;
@@ -156,6 +170,7 @@
 		939D64662441FE2800F634E3 /* UIModules */ = {
 			isa = PBXGroup;
 			children = (
+				931A44152444227D00017466 /* RequisitesPayments */,
 				931A440A24441D8000017466 /* Base */,
 				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
 			);
@@ -349,6 +364,7 @@
 			files = (
 				939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */,
 				931A441324441F3400017466 /* ViewModelProtocol.swift in Sources */,
+				931A4419244422D000017466 /* RequisitesPaymentViewModel.swift in Sources */,
 				931A441224441F2E00017466 /* BaseViewModel.swift in Sources */,
 				931A440C24441D9500017466 /* BaseVC.swift in Sources */,
 				939D64442441F98200F634E3 /* AppDelegate.swift in Sources */,
@@ -359,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939D645B2441F98400F634E3 /* EssentialDeveloperDemoTests.swift in Sources */,
+				939D645B2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift in Sources */,
 				931A440E24441E3400017466 /* BaseViewModel.swift in Sources */,
+				931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */,
+				931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */,
 				931A441124441EB900017466 /* RequisitesViewController.swift in Sources */,
 				931A441024441E5200017466 /* ViewModelProtocol.swift in Sources */,
 				931A441424441F3700017466 /* BaseVC.swift in Sources */,
@@ -509,6 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K9U45N8FBN;
 				INFOPLIST_FILE = EssentialDeveloperDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,6 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K9U45N8FBN;
 				INFOPLIST_FILE = EssentialDeveloperDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - IQKeyboardManagerSwift (6.4.2)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -17,6 +16,8 @@ PODS:
     - PromiseKit/CorePromise
   - Reachability (3.2)
   - Result (4.1.0)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -30,10 +31,10 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
-  - IQKeyboardManagerSwift (~> 6.4.0)
   - Moya (~> 13.0.1)
   - PromiseKit (~> 6.10.0)
   - Reachability (~> 3.2)
+  - RxBlocking (~> 5.1.1)
   - RxCocoa (~> 5.0.1)
   - RxSwift (~> 5.0.1)
   - SDWebImage (~> 5.0.6)
@@ -42,11 +43,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - IQKeyboardManagerSwift
     - Moya
     - PromiseKit
     - Reachability
     - Result
+    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -55,17 +56,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 5a96f827b4552cda9d34a3dd819f4dcbbb9428ee
+PODFILE CHECKSUM: 02c4828d685fa20f1f908b969afa3819e177ed52
 
 COCOAPODS: 1.8.4

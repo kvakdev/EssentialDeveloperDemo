@@ -23,7 +23,7 @@ def helpers_pods
   pod 'RxCocoa', '~> 5.0.1'
   pod 'SwiftLint'
   pod 'PromiseKit', '~> 6.10.0'
-  pod 'IQKeyboardManagerSwift', '~> 6.4.0'
+  pod 'RxBlocking', '~> 5.1.1'
 end
 
 

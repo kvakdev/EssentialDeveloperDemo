@@ -11,4 +11,9 @@ import UIKit
 class BaseVC<T: ViewModelProtocol>: UIViewController {
     var viewModel: T?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel?.viewDidLoad()
+    }
 }
