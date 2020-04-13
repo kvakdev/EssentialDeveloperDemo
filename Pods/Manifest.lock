@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - IQKeyboardManagerSwift (6.4.2)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
@@ -29,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
+  - IQKeyboardManagerSwift (~> 6.4.0)
   - Moya (~> 13.0.1)
   - PromiseKit (~> 6.10.0)
   - Reachability (~> 3.2)
@@ -40,6 +42,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IQKeyboardManagerSwift
     - Moya
     - PromiseKit
     - Reachability
@@ -52,6 +55,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  IQKeyboardManagerSwift: 79a3ec200dfb41cb66a89b8575417b5378107c5d
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
@@ -62,6 +66,6 @@ SPEC CHECKSUMS:
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: d7ebabcd28bd6cdfece56950de3896bb0d59254d
+PODFILE CHECKSUM: 5a96f827b4552cda9d34a3dd819f4dcbbb9428ee
 
 COCOAPODS: 1.8.4
