@@ -9,8 +9,16 @@
 import UIKit
 import RxSwift
 
-class RequisitesCellViewModel: NSObject {
+class RequisitesCellModel {
     
+}
+
+class RequisitesCellViewModel: NSObject {
+    private let model: RequisitesCellModel
+    
+    init(_ model: RequisitesCellModel = RequisitesCellModel()) {
+        self.model = model
+    }
 }
 
 class RequisitesSectionViewModel: NSObject {
