@@ -22,23 +22,28 @@ class EssentialDeveloperDemoTests: XCTestCase {
     }
     
     func test_numberOfSections_isEqualToNumberOfSectionModels() {
-        let sectionModels: [Int] = [1,2,3]
+        let sectionModels = [1...3].compactMap { _ in RequisitesCellViewModel() }
         let sut = makeSUT(sectionModels)
         XCTAssertEqual(sut.numberOfSections(), sectionModels.count)
     }
     
-    func test_returnsViewModel_forCellAtIndexPath() {
-        let sut = makeSUT([1])
-        let cellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 0))
+    func test_returnsCorrectViewModel_forCellAtIndexPath() {
+        let neededCellViewModel = RequisitesCellViewModel()
+        let sut = makeSUT([neededCellViewModel])
+        let receivedCellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 0))
         
-        XCTAssertNotNil(cellViewModel)
+        XCTAssertEqual(receivedCellViewModel, neededCellViewModel)
+    }
+    
+    func test_returnNoViewModelsForEmptySectionsArray() {
+        XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
     
     func test_callbackIsHandledFrom_cellViewModel() {
         
     }
     
-    func makeSUT(_ sections: [Int] = []) -> RequisitesPaymentViewModelProtocol {
+    func makeSUT(_ sections: [RequisitesCellViewModel] = []) -> RequisitesPaymentViewModelProtocol {
         let sut = RequisitesPaymentViewModel()
         sut.setSections(sections)
         
