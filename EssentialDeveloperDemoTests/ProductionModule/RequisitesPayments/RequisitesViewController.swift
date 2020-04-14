@@ -9,9 +9,14 @@
 import UIKit
 import RxSwift
 
+class RequisitesCellViewModel {
+    
+}
+
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
     func numberOfRows(in section: Int) -> Int
     func numberOfSections() -> Int
+    func viewModel(at indexPath: IndexPath) -> RequisitesCellViewModel?
 }
 
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
@@ -28,6 +33,10 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     
     func numberOfSections() -> Int {
         return sections.count
+    }
+    
+    func viewModel(at indexPath: IndexPath) -> RequisitesCellViewModel? {
+        return RequisitesCellViewModel()
     }
 }
 

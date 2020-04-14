@@ -27,6 +27,17 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertEqual(sut.numberOfSections(), sectionModels.count)
     }
     
+    func test_returnsViewModel_forCellAtIndexPath() {
+        let sut = makeSUT([1])
+        let cellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 0))
+        
+        XCTAssertNotNil(cellViewModel)
+    }
+    
+    func test_callbackIsHandledFrom_cellViewModel() {
+        
+    }
+    
     func makeSUT(_ sections: [Int] = []) -> RequisitesPaymentViewModelProtocol {
         let sut = RequisitesPaymentViewModel()
         sut.setSections(sections)
