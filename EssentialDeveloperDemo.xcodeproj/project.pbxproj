@@ -256,7 +256,6 @@
 					};
 					939D64552441F98400F634E3 = {
 						CreatedOnToolsVersion = 11.3;
-						TestTargetID = 939D643F2441F98200F634E3;
 					};
 				};
 			};
@@ -588,7 +587,6 @@
 			baseConfigurationReference = 0381E43C7FC73170F4A727F7 /* Pods-EssentialDeveloperDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EssentialDeveloperDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -601,7 +599,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialDeveloperDemo.app/EssentialDeveloperDemo";
 			};
 			name = Debug;
 		};
@@ -610,7 +607,6 @@
 			baseConfigurationReference = 0310D25FC810149138A9D2CA /* Pods-EssentialDeveloperDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EssentialDeveloperDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -623,7 +619,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialDeveloperDemo.app/EssentialDeveloperDemo";
 			};
 			name = Release;
 		};
