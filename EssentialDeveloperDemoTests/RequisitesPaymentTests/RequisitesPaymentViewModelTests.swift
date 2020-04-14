@@ -22,15 +22,17 @@ class EssentialDeveloperDemoTests: XCTestCase {
     }
     
     func test_numberOfSections_isEqualToNumberOfSectionModels() {
-        let sectionModels = [1...3].compactMap { _ in RequisitesSectionViewModel() }
+        let sectionModels = [1...3].compactMap { _ in RequisitesSectionViewModel([]) }
         let sut = makeSUT(sectionModels)
         XCTAssertEqual(sut.numberOfSections(), sectionModels.count)
     }
     
-    func test_returnsCorrectViewModel_forCellAtIndexPath() {
-        let neededCellViewModel = RequisitesSectionViewModel()
-        let sut = makeSUT([neededCellViewModel])
-        let receivedCellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 0))
+    func test_returnsCorrectSectionViewModel_forCellAtIndexPath() {
+        let firstSection = RequisitesSectionViewModel([])
+        let neededCellViewModel = RequisitesCellViewModel()
+        let secondSectionViewModel = RequisitesSectionViewModel([neededCellViewModel])
+        let sut = makeSUT([firstSection, secondSectionViewModel])
+        let receivedCellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 1))
         
         XCTAssertEqual(receivedCellViewModel, neededCellViewModel)
     }
