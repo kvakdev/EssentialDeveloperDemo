@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
+    
+}
+
+class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
     
 }
 

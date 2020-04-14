@@ -9,11 +9,6 @@
 import XCTest
 
 
-
-class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
-    
-}
-
 class EssentialDeveloperDemoTests: XCTestCase {
     
     func test_requisitesViewController_inits() {

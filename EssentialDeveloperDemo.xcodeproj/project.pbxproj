@@ -117,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
+				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
 			);
 			path = RequisitesPayments;
 			sourceTree = "<group>";
@@ -194,7 +195,6 @@
 			children = (
 				931A44152444227D00017466 /* RequisitesPayments */,
 				931A440A24441D8000017466 /* Base */,
-				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
 			);
 			path = ProductionModule;
 			sourceTree = "<group>";
