@@ -9,21 +9,21 @@
 import UIKit
 import RxSwift
 
-class RequisitesCellViewModel: NSObject {
+class RequisitesSectionViewModel: NSObject {
     
 }
 
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
     func numberOfRows(in section: Int) -> Int
     func numberOfSections() -> Int
-    func viewModel(at indexPath: IndexPath) -> RequisitesCellViewModel?
+    func viewModel(at indexPath: IndexPath) -> RequisitesSectionViewModel?
 }
 
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
     
-    private var sections: [RequisitesCellViewModel] = []
+    private var sections: [RequisitesSectionViewModel] = []
     
-    func setSections(_ sections: [RequisitesCellViewModel]) {
+    func setSections(_ sections: [RequisitesSectionViewModel]) {
         self.sections = sections
     }
     
@@ -35,8 +35,8 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         return sections.count
     }
     
-    func viewModel(at indexPath: IndexPath) -> RequisitesCellViewModel? {
-        guard sections.count > indexPath.row else { return nil }
+    func viewModel(at indexPath: IndexPath) -> RequisitesSectionViewModel? {
+        guard sections.count > indexPath.section else { return nil }
         return sections[indexPath.row]
     }
 }
