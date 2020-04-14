@@ -139,6 +139,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		93700F2F244574DA0008AC20 /* RequisitesPaymentTests */ = {
+			isa = PBXGroup;
+			children = (
+				939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */,
+			);
+			path = RequisitesPaymentTests;
+			sourceTree = "<group>";
+		};
 		939D64372441F98200F634E3 = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				939D64662441FE2800F634E3 /* ProductionModule */,
-				939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */,
+				93700F2F244574DA0008AC20 /* RequisitesPaymentTests */,
 				931A442024443F8C00017466 /* BaseViewControllerTests */,
 				931A442124443FA000017466 /* Helpers */,
 				939D645C2441F98400F634E3 /* Info.plist */,

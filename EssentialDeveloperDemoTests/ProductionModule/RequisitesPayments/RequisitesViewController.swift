@@ -10,14 +10,16 @@ import UIKit
 import RxSwift
 
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
-    
+    func numberOfRows(in section: Int) -> Int
 }
 
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
-    
+    func numberOfRows(in section: Int) -> Int {
+        return 0
+    }
 }
 
 class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T> {
-
+    
 }
 

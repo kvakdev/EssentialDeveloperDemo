@@ -15,4 +15,15 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertNotNil(RequisitesViewController<RequisitesPaymentViewModel>())
     }
     
+    func test_viewModel_hasNumberOfRowsInSection() {
+        let sut = makeSUT()
+        let rowsCount = sut.numberOfRows(in: 0)
+        XCTAssertNotNil(rowsCount)
+    }
+    
+    func makeSUT() -> RequisitesPaymentViewModelProtocol {
+        let sut = RequisitesPaymentViewModel()
+        
+        return sut
+    }
 }
