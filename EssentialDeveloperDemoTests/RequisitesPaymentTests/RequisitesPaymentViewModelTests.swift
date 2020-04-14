@@ -21,8 +21,15 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertNotNil(rowsCount)
     }
     
-    func makeSUT() -> RequisitesPaymentViewModelProtocol {
+    func test_numberOfSections_isEqualToNumberOfSectionModels() {
+        let sectionModels: [Int] = [1,2,3]
+        let sut = makeSUT(sectionModels)
+        XCTAssertEqual(sut.numberOfSections(), sectionModels.count)
+    }
+    
+    func makeSUT(_ sections: [Int] = []) -> RequisitesPaymentViewModelProtocol {
         let sut = RequisitesPaymentViewModel()
+        sut.setSections(sections)
         
         return sut
     }
