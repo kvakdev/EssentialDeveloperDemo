@@ -9,8 +9,18 @@
 import UIKit
 import RxSwift
 
+enum RequisiteType {
+    case iban
+    case taxNumber
+    case text
+}
+
 class RequisitesCellModel {
+    let type: RequisiteType
     
+    init(_ type: RequisiteType = .text) {
+        self.type = type
+    }
 }
 
 class RequisitesCellViewModel: NSObject {
