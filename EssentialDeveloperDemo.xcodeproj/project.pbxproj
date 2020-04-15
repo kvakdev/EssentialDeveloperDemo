@@ -24,7 +24,7 @@
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
 		939D64502441F98400F634E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 939D644E2441F98400F634E3 /* LaunchScreen.storyboard */; };
-		939D645B2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */; };
+		939D645B2441F98400F634E3 /* RequisitesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D645A2441F98400F634E3 /* RequisitesDataSourceTests.swift */; };
 		9EB561AE1DB83D7A89F4C276 /* Pods_EssentialDeveloperDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5EB1C65D99BC1F24E111424 /* Pods_EssentialDeveloperDemoTests.framework */; };
 		E3AF4C37AC4440E3C3E1ABEA /* Pods_EssentialDeveloperDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1340EA0DA3DEAF8F1D1B1C0 /* Pods_EssentialDeveloperDemo.framework */; };
 /* End PBXBuildFile section */
@@ -58,7 +58,7 @@
 		939D644F2441F98400F634E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		939D64512441F98400F634E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		939D64562441F98400F634E3 /* EssentialDeveloperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialDeveloperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesPaymentViewModelTests.swift; sourceTree = "<group>"; };
+		939D645A2441F98400F634E3 /* RequisitesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesDataSourceTests.swift; sourceTree = "<group>"; };
 		939D645C2441F98400F634E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5EB1C65D99BC1F24E111424 /* Pods_EssentialDeveloperDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssentialDeveloperDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7846CB1BEE3A3A0A577E9D4 /* Pods-EssentialDeveloperDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssentialDeveloperDemo.debug.xcconfig"; path = "Target Support Files/Pods-EssentialDeveloperDemo/Pods-EssentialDeveloperDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		93700F2F244574DA0008AC20 /* RequisitesPaymentTests */ = {
 			isa = PBXGroup;
 			children = (
-				939D645A2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift */,
+				939D645A2441F98400F634E3 /* RequisitesDataSourceTests.swift */,
 				93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */,
 			);
 			path = RequisitesPaymentTests;
@@ -407,7 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939D645B2441F98400F634E3 /* RequisitesPaymentViewModelTests.swift in Sources */,
+				939D645B2441F98400F634E3 /* RequisitesDataSourceTests.swift in Sources */,
 				931A440E24441E3400017466 /* BaseViewModel.swift in Sources */,
 				931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */,
 				931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */,

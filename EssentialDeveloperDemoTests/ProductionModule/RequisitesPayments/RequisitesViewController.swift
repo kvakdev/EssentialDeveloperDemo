@@ -39,12 +39,28 @@ class RequisitesSectionViewModel: NSObject {
 }
 
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
+    
+}
+
+protocol RequisitesTableDataSourceProtocol {
     func numberOfRows(in section: Int) -> Int
     func numberOfSections() -> Int
     func viewModel(at indexPath: IndexPath) -> RequisitesCellViewModel?
 }
 
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
+    enum Mode {
+        case all
+        case search(RequisitesSectionViewModel)
+    }
+    let dataSource: RequisitesTableDataSource
+    
+    init(_ dataSource: RequisitesTableDataSource) {
+        self.dataSource = dataSource
+    }
+}
+
+class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtocol {
     
     private var sections: [RequisitesSectionViewModel] = []
     

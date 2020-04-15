@@ -1,6 +1,6 @@
 //
-//  EssentialDeveloperDemoTests.swift
-//  EssentialDeveloperDemoTests
+//  RequisitesDataSourceTests.swift
+//  RequisitesDataSourceTests
 //
 //  Created by Andre Kvashuk on 4/11/20.
 //  Copyright © 2020 Andre Kvashuk. All rights reserved.
@@ -15,7 +15,7 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertNotNil(RequisitesViewController<RequisitesPaymentViewModel>())
     }
     
-    func test_viewModel_hasNumberOfRowsInSection() {
+    func test_dataSource_hasNumberOfRowsInSection() {
         let sut = makeSUT()
         let rowsCount = sut.numberOfRows(in: 0)
         XCTAssertNotNil(rowsCount)
@@ -41,10 +41,8 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
     
-   
-    
-    func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesPaymentViewModelProtocol {
-        let sut = RequisitesPaymentViewModel()
+    func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesTableDataSourceProtocol {
+        let sut = RequisitesTableDataSource()
         sut.setSections(sections)
         
         return sut
