@@ -41,9 +41,7 @@ class EssentialDeveloperDemoTests: XCTestCase {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
     
-    func test_callbackIsHandledFrom_cellViewModel() {
-        
-    }
+   
     
     func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesPaymentViewModelProtocol {
         let sut = RequisitesPaymentViewModel()

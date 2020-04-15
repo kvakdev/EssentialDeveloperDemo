@@ -15,9 +15,18 @@ class RequisitesCellModel {
 
 class RequisitesCellViewModel: NSObject {
     private let model: RequisitesCellModel
+    private var callback: (() -> Void)?
     
     init(_ model: RequisitesCellModel = RequisitesCellModel()) {
         self.model = model
+    }
+    
+    func handleTapAction() {
+        callback?()
+    }
+    
+    func setCallback(_ callback: @escaping () -> Void) {
+        self.callback = callback
     }
 }
 
@@ -59,6 +68,10 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         guard section.viewModels.count > indexPath.row else { return nil }
         
         return section.viewModels[indexPath.row]
+    }
+    
+    func handleCallback(_ viewModel: RequisitesCellViewModel) {
+        
     }
 }
 
