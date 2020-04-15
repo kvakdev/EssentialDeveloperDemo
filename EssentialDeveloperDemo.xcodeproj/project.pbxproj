@@ -20,6 +20,7 @@
 		931A441D24443B5600017466 /* ResultBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441C24443B5600017466 /* ResultBag.swift */; };
 		931A441F24443F4A00017466 /* BaseViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A441E24443F4A00017466 /* BaseViewModelSpy.swift */; };
 		93700F472446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */; };
+		93700F492446CA950008AC20 /* RequisitesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F482446CA950008AC20 /* RequisitesViewModelTests.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		931A441C24443B5600017466 /* ResultBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBag.swift; sourceTree = "<group>"; };
 		931A441E24443F4A00017466 /* BaseViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelSpy.swift; sourceTree = "<group>"; };
 		93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesPaymentCellViewModelTests.swift; sourceTree = "<group>"; };
+		93700F482446CA950008AC20 /* RequisitesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewModelTests.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				939D645A2441F98400F634E3 /* RequisitesDataSourceTests.swift */,
+				93700F482446CA950008AC20 /* RequisitesViewModelTests.swift */,
 				93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */,
 			);
 			path = RequisitesPaymentTests;
@@ -417,6 +420,7 @@
 				931A441024441E5200017466 /* ViewModelProtocol.swift in Sources */,
 				931A441D24443B5600017466 /* ResultBag.swift in Sources */,
 				931A441424441F3700017466 /* BaseVC.swift in Sources */,
+				93700F492446CA950008AC20 /* RequisitesViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
