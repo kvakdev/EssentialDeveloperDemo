@@ -25,17 +25,17 @@ class RequisitesCellModel {
 
 class RequisitesCellViewModel: NSObject {
     private let model: RequisitesCellModel
-    private var callback: (() -> Void)?
+    private var callback: ((RequisiteType) -> Void)?
     
     init(_ model: RequisitesCellModel = RequisitesCellModel()) {
         self.model = model
     }
     
     func handleTapAction() {
-        callback?()
+        callback?(model.type)
     }
     
-    func setCallback(_ callback: @escaping () -> Void) {
+    func setCallback(_ callback: @escaping (RequisiteType) -> Void) {
         self.callback = callback
     }
 }
@@ -61,18 +61,27 @@ protocol RequisitesTableDataSourceProtocol {
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
     enum Mode {
         case all
-        case search(RequisitesSectionViewModel)
+        case search(RequisiteType)
     }
     let dataSource: RequisitesTableDataSource
     
     init(_ dataSource: RequisitesTableDataSource) {
         self.dataSource = dataSource
     }
+    
+    func handleCallback(_ type: RequisiteType) {
+        switch type {
+        case .iban, .taxNumber:
+            dataSource.mode = .search(type)
+        case .text:
+            dataSource.mode = .all
+        }
+    }
 }
 
 class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtocol {
-    
     private var sections: [RequisitesSectionViewModel] = []
+    var mode: RequisitesPaymentViewModel.Mode = .all
     
     func setSections(_ sections: [RequisitesSectionViewModel]) {
         self.sections = sections
@@ -94,10 +103,6 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
         guard section.viewModels.count > indexPath.row else { return nil }
         
         return section.viewModels[indexPath.row]
-    }
-    
-    func handleCallback(_ viewModel: RequisitesCellViewModel) {
-        
     }
 }
 

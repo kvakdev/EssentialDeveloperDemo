@@ -13,7 +13,7 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
     func test_callbackIsHandledFrom_cellViewModel() {
         let sut = makeSUT()
         let exp = expectation(description: "waiting tap")
-        sut.setCallback {
+        sut.setCallback { _ in
             exp.fulfill()
         }
         

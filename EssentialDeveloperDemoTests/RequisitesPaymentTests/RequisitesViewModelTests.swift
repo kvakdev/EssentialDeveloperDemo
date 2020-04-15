@@ -11,14 +11,38 @@ import XCTest
 class RequisitesViewModelTests: XCTestCase {
 
     func test_modeChanges_afterIbanCallback() {
+        let requisiteType = RequisiteType.iban
+        let (searchSection, searchCellViewModel) = makeSection(requisiteType)
+        let dataSource = RequisitesTableDataSource()
+        dataSource.setSections([searchSection])
         
+        let (sut, _) = makeSUT(dataSource)
+        searchCellViewModel.setCallback { type in
+            sut.handleCallback(type)
+        }
+        searchCellViewModel.handleTapAction()
+
+        switch dataSource.mode {
+        case .search(let type):
+            XCTAssertEqual(type, requisiteType)
+        default:
+            XCTFail("searchMode expected")
+        }
     }
     
-    func makeSUT(_ dataSource: RequisitesTableDataSourceProtocol? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
-        let dataSource = RequisitesTableDataSource()
-        let sut = RequisitesPaymentViewModel(dataSource)
+    func makeSection(_ type: RequisiteType) -> (RequisitesSectionViewModel, RequisitesCellViewModel) {
+        let model = RequisitesCellModel(type)
+        let cellViewModel = RequisitesCellViewModel(model)
+        let section = RequisitesSectionViewModel([cellViewModel])
         
-        return (sut, dataSource)
+        return (section, cellViewModel)
+    }
+    
+    func makeSUT(_ dataSource: RequisitesTableDataSource? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
+        let source = dataSource ?? RequisitesTableDataSource()
+        let sut = RequisitesPaymentViewModel(source)
+        
+        return (sut, source)
     }
 
 }
