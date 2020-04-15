@@ -21,6 +21,17 @@ class RequisitesViewModelTests: XCTestCase {
         }
     }
     
+    func test_modeChanges_afterTaxNumberCallback() {
+        let requisiteType = RequisiteType.taxNumber
+        let mode = modeChangesAfterCallback(with: requisiteType)
+        switch mode {
+        case .search(let type):
+            XCTAssertEqual(type, requisiteType)
+        case .all:
+            XCTFail("searchMode expected got \(mode) instead")
+        }
+    }
+    
     func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)
         let dataSource = RequisitesTableDataSource()
