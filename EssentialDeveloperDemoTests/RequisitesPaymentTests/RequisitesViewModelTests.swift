@@ -12,6 +12,16 @@ class RequisitesViewModelTests: XCTestCase {
 
     func test_modeChanges_afterIbanCallback() {
         let requisiteType = RequisiteType.iban
+        let mode = modeChangesAfterCallback(with: requisiteType)
+        switch mode {
+        case .search(let type):
+            XCTAssertEqual(type, requisiteType)
+        case .all:
+            XCTFail("searchMode expected got \(mode) instead")
+        }
+    }
+    
+    func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)
         let dataSource = RequisitesTableDataSource()
         dataSource.setSections([searchSection])
@@ -21,13 +31,8 @@ class RequisitesViewModelTests: XCTestCase {
             sut.handleCallback(type)
         }
         searchCellViewModel.handleTapAction()
-
-        switch dataSource.mode {
-        case .search(let type):
-            XCTAssertEqual(type, requisiteType)
-        default:
-            XCTFail("searchMode expected")
-        }
+        
+        return dataSource.mode
     }
     
     func makeSection(_ type: RequisiteType) -> (RequisitesSectionViewModel, RequisitesCellViewModel) {
