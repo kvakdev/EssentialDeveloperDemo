@@ -11,4 +11,3 @@ import UIKit
 class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T> {
     
 }
-

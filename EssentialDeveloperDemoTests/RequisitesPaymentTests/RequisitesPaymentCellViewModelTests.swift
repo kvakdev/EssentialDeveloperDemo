@@ -41,7 +41,7 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
     func test_sutErrorText_reflectsValidationErrorText() {
         let messsage = "<Test error>"
         let error = anyError(message: messsage)
-        let validator = SpyValidator(error: error)
+        let validator = FailingValidator(error: error)
         let model = RequisitesCellModel(.text, validator: validator)
         let sut = makeSUT(model)
         let resultBag = ResultBag(sut.errorText)

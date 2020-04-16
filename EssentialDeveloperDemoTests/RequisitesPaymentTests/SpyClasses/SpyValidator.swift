@@ -11,27 +11,12 @@ import Foundation
 class SpyValidator: ValidatorProtocol {
     var progressStrings: [String] = []
     var finalStrings: [String] = []
-    
-    let error: Error?
-    
-    init(error: Error? = nil) {
-        self.error = error
-    }
-    
+
     func validateProgress(_ string: String) throws {
         progressStrings.append(string)
-        
-        try tryThrowError()
-    }
-    func validateFinal(_ string: String) throws {
-        finalStrings.append(string)
-        
-        try tryThrowError()
     }
     
-    private func tryThrowError() throws {
-        if let error = error {
-            throw error
-        }
+    func validateFinal(_ string: String) throws {
+        finalStrings.append(string)
     }
 }

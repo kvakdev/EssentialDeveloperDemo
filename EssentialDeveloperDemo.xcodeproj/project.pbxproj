@@ -36,6 +36,7 @@
 		93700F5F2448E5D50008AC20 /* RequisiteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F5B2448E5680008AC20 /* RequisiteType.swift */; };
 		93700F602448E5D80008AC20 /* ValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F592448E5410008AC20 /* ValidatorProtocol.swift */; };
 		93700F612448E5DE0008AC20 /* RequisitesTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F5D2448E5AA0008AC20 /* RequisitesTableDataSource.swift */; };
+		93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F622448E65F0008AC20 /* FailingValidator.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		93700F592448E5410008AC20 /* ValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorProtocol.swift; sourceTree = "<group>"; };
 		93700F5B2448E5680008AC20 /* RequisiteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteType.swift; sourceTree = "<group>"; };
 		93700F5D2448E5AA0008AC20 /* RequisitesTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesTableDataSource.swift; sourceTree = "<group>"; };
+		93700F622448E65F0008AC20 /* FailingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingValidator.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				93700F512448E4990008AC20 /* SpyValidator.swift */,
+				93700F622448E65F0008AC20 /* FailingValidator.swift */,
 			);
 			path = SpyClasses;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				93700F472446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift in Sources */,
 				93700F4D2448E4380008AC20 /* RequisitesCellModel.swift in Sources */,
 				93700F5E2448E5AA0008AC20 /* RequisitesTableDataSource.swift in Sources */,
+				93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */,
 				931A441124441EB900017466 /* RequisitesViewController.swift in Sources */,
 				931A441024441E5200017466 /* ViewModelProtocol.swift in Sources */,
 				93700F522448E4990008AC20 /* SpyValidator.swift in Sources */,
