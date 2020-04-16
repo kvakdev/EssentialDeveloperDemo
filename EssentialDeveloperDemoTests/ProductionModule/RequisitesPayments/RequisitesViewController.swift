@@ -25,13 +25,30 @@ class SpyValidator: ValidatorProtocol {
     var progressStrings: [String] = []
     var finalStrings: [String] = []
     
+    let error: Error?
+    
+    init(error: Error? = nil) {
+        self.error = error
+    }
+    
     func validateProgress(_ string: String) throws {
         progressStrings.append(string)
+        
+        try tryThrowError()
     }
     func validateFinal(_ string: String) throws {
         finalStrings.append(string)
+        
+        try tryThrowError()
+    }
+    
+    private func tryThrowError() throws {
+        if let error = error {
+            throw error
+        }
     }
 }
+
 
 class RequisitesCellModel {
     let type: RequisiteType
@@ -50,6 +67,7 @@ class RequisitesCellModel {
 
 class RequisitesCellViewModel: NSObject {
     let text: BehaviorRelay<String> = .init(value: "")
+    let errorText: PublishSubject<String?> = .init()
     
     private let model: RequisitesCellModel
     private var callback: ((RequisiteType) -> Void)?
@@ -66,7 +84,7 @@ class RequisitesCellViewModel: NSObject {
         do {
             try model.validateProgress(text)
         } catch {
-            
+            errorText.onNext(error.localizedDescription)
         }
     }
     

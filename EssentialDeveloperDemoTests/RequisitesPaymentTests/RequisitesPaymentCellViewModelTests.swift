@@ -38,9 +38,32 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         XCTAssertEqual(spyValidator.progressStrings, ["test", "test2"])
     }
     
+    func test_sutErrorText_reflectsValidationErrorText() {
+        let messsage = "<Test error>"
+        let error = anyError(message: messsage)
+        let validator = SpyValidator(error: error)
+        let model = RequisitesCellModel(.text, validator: validator)
+        let sut = makeSUT(model)
+        let resultBag = ResultBag(sut.errorText)
+        sut.didChangeText("<some value>")
+        XCTAssertEqual(resultBag.values, [messsage])
+    }
+    
     func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel(validator: SpyValidator())) -> RequisitesCellViewModel {
         let cellViewModel = RequisitesCellViewModel(model)
         
         return cellViewModel
+    }
+    
+    func anyError(message: String) -> Error {
+        return TextError(message)
+    }
+}
+
+class TextError: LocalizedError {
+    var errorDescription: String?
+    
+    init(_ text: String) {
+        errorDescription = text
     }
 }
