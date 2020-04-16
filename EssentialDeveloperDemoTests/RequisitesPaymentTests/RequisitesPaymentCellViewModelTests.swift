@@ -21,8 +21,16 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         wait(for: [exp], timeout: 0.2)
     }
     
-    func makeSUT() -> RequisitesCellViewModel {
-        let cellViewModel = RequisitesCellViewModel()
+    func test_cellViewModel_passesModelsValue() {
+        let model = RequisitesCellModel()
+        let sut = makeSUT(model)
+        let resultBag = ResultBag(sut.text)
+        model.text.accept("test")
+        XCTAssertEqual(resultBag.values, ["", "test"])
+    }
+    
+    func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel()) -> RequisitesCellViewModel {
+        let cellViewModel = RequisitesCellViewModel(model)
         
         return cellViewModel
     }

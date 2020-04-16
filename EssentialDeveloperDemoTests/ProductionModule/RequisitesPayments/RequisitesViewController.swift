@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 enum RequisiteType {
     case iban
@@ -17,6 +18,7 @@ enum RequisiteType {
 
 class RequisitesCellModel {
     let type: RequisiteType
+    let text: BehaviorRelay<String> = .init(value: "")
     
     init(_ type: RequisiteType = .text) {
         self.type = type
@@ -24,11 +26,16 @@ class RequisitesCellModel {
 }
 
 class RequisitesCellViewModel: NSObject {
+    let text: BehaviorRelay<String> = .init(value: "")
     private let model: RequisitesCellModel
     private var callback: ((RequisiteType) -> Void)?
+    private let disposeBag = DisposeBag()
     
     init(_ model: RequisitesCellModel = RequisitesCellModel()) {
         self.model = model
+        super.init()
+        
+        self.setupObservers()
     }
     
     func handleTapAction() {
@@ -37,6 +44,12 @@ class RequisitesCellViewModel: NSObject {
     
     func setCallback(_ callback: @escaping (RequisiteType) -> Void) {
         self.callback = callback
+    }
+    
+    func setupObservers() {
+        model.text.subscribe(onNext: { [weak self] text in
+            self?.text.accept(text)
+        }).disposed(by: disposeBag)
     }
 }
 
