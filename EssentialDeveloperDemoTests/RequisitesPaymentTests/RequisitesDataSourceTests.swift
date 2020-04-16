@@ -9,7 +9,7 @@
 import XCTest
 
 
-class EssentialDeveloperDemoTests: XCTestCase {
+class RequisitesDataSourceTests: XCTestCase {
     
     func test_requisitesViewController_inits() {
         XCTAssertNotNil(RequisitesViewController<RequisitesPaymentViewModel>())
