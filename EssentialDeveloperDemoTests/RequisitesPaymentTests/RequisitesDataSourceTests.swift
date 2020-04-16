@@ -29,7 +29,8 @@ class EssentialDeveloperDemoTests: XCTestCase {
     
     func test_returnsCorrectSectionViewModel_forCellAtIndexPath() {
         let firstSection = RequisitesSectionViewModel([])
-        let neededCellViewModel = RequisitesCellViewModel()
+        let model = RequisitesCellModel(.text, validator: SpyValidator())
+        let neededCellViewModel = RequisitesCellViewModel(model)
         let secondSectionViewModel = RequisitesSectionViewModel([neededCellViewModel])
         let sut = makeSUT([firstSection, secondSectionViewModel])
         let receivedCellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 1))

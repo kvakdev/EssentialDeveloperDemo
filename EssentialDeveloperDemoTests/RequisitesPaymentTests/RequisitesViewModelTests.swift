@@ -47,7 +47,7 @@ class RequisitesViewModelTests: XCTestCase {
     }
     
     func makeSection(_ type: RequisiteType) -> (RequisitesSectionViewModel, RequisitesCellViewModel) {
-        let model = RequisitesCellModel(type)
+        let model = RequisitesCellModel(type, validator: SpyValidator())
         let cellViewModel = RequisitesCellViewModel(model)
         let section = RequisitesSectionViewModel([cellViewModel])
         

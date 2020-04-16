@@ -22,14 +22,23 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
     }
     
     func test_cellViewModel_passesModelsValue() {
-        let model = RequisitesCellModel()
+        let model = RequisitesCellModel(validator: SpyValidator())
         let sut = makeSUT(model)
         let resultBag = ResultBag(sut.text)
         model.text.accept("test")
         XCTAssertEqual(resultBag.values, ["", "test"])
     }
     
-    func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel()) -> RequisitesCellViewModel {
+    func test_sutCallsValidation_onTextChanged() {
+        let spyValidator = SpyValidator()
+        let model = RequisitesCellModel(.text, validator: spyValidator)
+        let sut = makeSUT(model)
+        sut.didChangeText("test")
+        sut.didChangeText("test2")
+        XCTAssertEqual(spyValidator.progressStrings, ["test", "test2"])
+    }
+    
+    func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel(validator: SpyValidator())) -> RequisitesCellViewModel {
         let cellViewModel = RequisitesCellViewModel(model)
         
         return cellViewModel

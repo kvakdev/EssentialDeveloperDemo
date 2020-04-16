@@ -16,26 +16,58 @@ enum RequisiteType {
     case text
 }
 
+protocol ValidatorProtocol {
+    func validateProgress(_ string: String) throws
+    func validateFinal(_ string: String) throws
+}
+
+class SpyValidator: ValidatorProtocol {
+    var progressStrings: [String] = []
+    var finalStrings: [String] = []
+    
+    func validateProgress(_ string: String) throws {
+        progressStrings.append(string)
+    }
+    func validateFinal(_ string: String) throws {
+        finalStrings.append(string)
+    }
+}
+
 class RequisitesCellModel {
     let type: RequisiteType
     let text: BehaviorRelay<String> = .init(value: "")
+    let validator: ValidatorProtocol
     
-    init(_ type: RequisiteType = .text) {
+    init(_ type: RequisiteType = .text, validator: ValidatorProtocol) {
         self.type = type
+        self.validator = validator
+    }
+    
+    func validateProgress(_ string: String) throws {
+        try validator.validateProgress(string)
     }
 }
 
 class RequisitesCellViewModel: NSObject {
     let text: BehaviorRelay<String> = .init(value: "")
+    
     private let model: RequisitesCellModel
     private var callback: ((RequisiteType) -> Void)?
     private let disposeBag = DisposeBag()
     
-    init(_ model: RequisitesCellModel = RequisitesCellModel()) {
+    init(_ model: RequisitesCellModel) {
         self.model = model
         super.init()
         
         self.setupObservers()
+    }
+    
+    func didChangeText(_ text: String) {
+        do {
+            try model.validateProgress(text)
+        } catch {
+            
+        }
     }
     
     func handleTapAction() {
