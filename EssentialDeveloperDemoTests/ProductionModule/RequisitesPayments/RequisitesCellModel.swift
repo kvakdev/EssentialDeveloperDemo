@@ -9,7 +9,7 @@
 import Foundation
 import RxCocoa
 
-class RequisitesCellModel {
+class RequisitesCellModel: RequisitesCellModelProtocol {
     let type: RequisiteType
     let text: BehaviorRelay<String> = .init(value: "")
     let validator: ValidatorProtocol
@@ -21,5 +21,9 @@ class RequisitesCellModel {
     
     func validateProgress(_ string: String) throws {
         try validator.validateProgress(string)
+    }
+    
+    func validateFinal(_ string: String) throws {
+        try validator.validateFinal(string)
     }
 }

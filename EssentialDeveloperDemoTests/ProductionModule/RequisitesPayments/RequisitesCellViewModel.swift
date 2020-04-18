@@ -14,11 +14,11 @@ class RequisitesCellViewModel: NSObject {
     let text: BehaviorRelay<String> = .init(value: "")
     let errorText: PublishSubject<String?> = .init()
     
-    private let model: RequisitesCellModel
+    private let model: RequisitesCellModelProtocol
     private var callback: ((RequisiteType) -> Void)?
     private let disposeBag = DisposeBag()
     
-    init(_ model: RequisitesCellModel) {
+    init(_ model: RequisitesCellModelProtocol) {
         self.model = model
         super.init()
         

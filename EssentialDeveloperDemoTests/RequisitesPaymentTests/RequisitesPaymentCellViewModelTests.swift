@@ -49,10 +49,19 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         XCTAssertEqual(resultBag.values, [messsage])
     }
     
+    func test_sutCallsFinalValidation_onPreset() {
+        let model = makeAnyModel()
+        let sut = makeSUT(model)
+    }
+    
     func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel(validator: SpyValidator())) -> RequisitesCellViewModel {
         let cellViewModel = RequisitesCellViewModel(model)
         
         return cellViewModel
+    }
+    
+    func makeAnyModel() -> RequisitesCellModel {
+        return RequisitesCellModel(validator: SpyValidator())
     }
     
     func anyError(message: String) -> Error {
