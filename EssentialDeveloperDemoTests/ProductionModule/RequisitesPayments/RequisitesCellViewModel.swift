@@ -25,6 +25,10 @@ class RequisitesCellViewModel: NSObject {
         self.setupObservers()
     }
     
+    func getType() -> RequisiteType {
+        return model.type
+    }
+    
     func didChangeText(_ text: String) {
         do {
             try model.validateProgress(text)

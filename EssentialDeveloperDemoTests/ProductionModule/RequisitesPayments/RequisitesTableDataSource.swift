@@ -18,7 +18,15 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
     }
     
     func numberOfRows(in section: Int) -> Int {
-        return 0
+        guard section < sections.count else { return 0 }
+        let neededSection = sections[section]
+        
+        switch mode {
+        case .all:
+            return neededSection.viewModels.count
+        case .search(let type):
+            return neededSection.viewModels.filter { $0.getType() == type }.count
+        }
     }
     
     func numberOfSections() -> Int {

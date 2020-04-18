@@ -42,7 +42,43 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
     
-    func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesTableDataSourceProtocol {
+    func test_SUT_returnsCorrectSearchedSectionCellViewModel() {
+        let ibanSection = makeSection(type: .iban, cellCount: 1)
+        let regularSection = makeSection(type: .text, cellCount: 2)
+        let regularSectionTwo = makeSection(type: .text, cellCount: 2)
+        let sut = makeSUT([ibanSection, regularSection, regularSectionTwo])
+        
+        sut.mode = .all
+        
+        let sectionOneRows = sut.numberOfRows(in: 0)
+        let sectionTwoRows = sut.numberOfRows(in: 1)
+        let sectionThreeRows = sut.numberOfRows(in: 2)
+
+        XCTAssertEqual(sectionOneRows, 1)
+        XCTAssertEqual(sectionTwoRows, 2)
+        XCTAssertEqual(sectionThreeRows, 2)
+        
+        sut.mode = .search(.iban)
+        
+        let searchSectionOneRows = sut.numberOfRows(in: 0)
+        let searchSectionTwoRows = sut.numberOfRows(in: 1)
+        let searchSectionThreeRows = sut.numberOfRows(in: 2)
+        
+        XCTAssertEqual(searchSectionOneRows, 1)
+        XCTAssertEqual(searchSectionTwoRows, 0)
+        XCTAssertEqual(searchSectionThreeRows, 0)
+    }
+    
+    func makeSection(type: RequisiteType, cellCount: Int) -> RequisitesSectionViewModel {
+        let cellViewModels: [RequisitesCellViewModel] = (0..<cellCount).compactMap { _ -> RequisitesCellViewModel in
+            let model = RequisitesCellModel(type, validator: SpyValidator())
+            let cellViewModel = RequisitesCellViewModel(model)
+            return cellViewModel
+        }
+        return RequisitesSectionViewModel(cellViewModels)
+    }
+    
+    func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesTableDataSource {
         let sut = RequisitesTableDataSource()
         sut.setSections(sections)
         
