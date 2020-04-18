@@ -42,31 +42,22 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
     
-    func test_SUT_returnsCorrectSearchedSectionCellViewModel() {
-        let ibanSection = makeSection(type: .iban, cellCount: 1)
-        let regularSection = makeSection(type: .text, cellCount: 2)
-        let regularSectionTwo = makeSection(type: .text, cellCount: 2)
-        let sut = makeSUT([ibanSection, regularSection, regularSectionTwo])
+    func test_sutReturnCorrectNumberOfRows_forModes() {
+        XCTAssertEqual(numberOfRowsFor(.iban, cellCount: 1, in: .search(.iban)), 1)
+        XCTAssertEqual(numberOfRowsFor(.iban, cellCount: 1, in: .search(.taxNumber)), 0)
+        XCTAssertEqual(numberOfRowsFor(.taxNumber, cellCount: 1, in: .search(.iban)), 0)
+        XCTAssertEqual(numberOfRowsFor(.taxNumber, cellCount: 2, in: .search(.taxNumber)), 2)
+        XCTAssertEqual(numberOfRowsFor(.taxNumber, cellCount: 1, in: .all), 1)
+        XCTAssertEqual(numberOfRowsFor(.text, cellCount: 3, in: .all), 3)
+        XCTAssertEqual(numberOfRowsFor(.text, cellCount: 2, in: .search(.taxNumber)), 0)
+        XCTAssertEqual(numberOfRowsFor(.text, cellCount: 1, in: .search(.iban)), 0)
+    }
+    
+    func numberOfRowsFor(_ type: RequisiteType, cellCount: Int, in mode: RequisitesPaymentViewModel.Mode) -> Int {
+        let sut = makeSUT([makeSection(type: type, cellCount: cellCount)])
+        sut.mode = mode
         
-        sut.mode = .all
-        
-        let sectionOneRows = sut.numberOfRows(in: 0)
-        let sectionTwoRows = sut.numberOfRows(in: 1)
-        let sectionThreeRows = sut.numberOfRows(in: 2)
-
-        XCTAssertEqual(sectionOneRows, 1)
-        XCTAssertEqual(sectionTwoRows, 2)
-        XCTAssertEqual(sectionThreeRows, 2)
-        
-        sut.mode = .search(.iban)
-        
-        let searchSectionOneRows = sut.numberOfRows(in: 0)
-        let searchSectionTwoRows = sut.numberOfRows(in: 1)
-        let searchSectionThreeRows = sut.numberOfRows(in: 2)
-        
-        XCTAssertEqual(searchSectionOneRows, 1)
-        XCTAssertEqual(searchSectionTwoRows, 0)
-        XCTAssertEqual(searchSectionThreeRows, 0)
+        return sut.numberOfRows(in: 0)
     }
     
     func makeSection(type: RequisiteType, cellCount: Int) -> RequisitesSectionViewModel {
