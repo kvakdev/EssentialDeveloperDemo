@@ -32,6 +32,7 @@ class RequisitesCellViewModel: NSObject {
     func didChangeText(_ text: String) {
         do {
             try model.validateProgress(text)
+            errorText.onNext(nil)
         } catch {
             errorText.onNext(error.localizedDescription)
         }
@@ -47,7 +48,17 @@ class RequisitesCellViewModel: NSObject {
     
     func setupObservers() {
         model.text.subscribe(onNext: { [weak self] text in
-            self?.text.accept(text)
+            self?.setText(text)
         }).disposed(by: disposeBag)
+    }
+    
+    private func setText(_ text: String) {
+        self.text.accept(text)
+        do {
+            try self.model.validateFinal(text)
+            errorText.onNext(nil)
+        } catch {
+            errorText.onNext(error.localizedDescription)
+        }
     }
 }

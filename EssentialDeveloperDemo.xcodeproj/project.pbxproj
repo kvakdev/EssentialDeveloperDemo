@@ -39,6 +39,7 @@
 		93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F622448E65F0008AC20 /* FailingValidator.swift */; };
 		93700F67244AEDA60008AC20 /* RequisitesCellModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */; };
 		93700F68244AEE090008AC20 /* RequisitesCellModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */; };
+		93700F6A244B3BB10008AC20 /* RequisisteCellModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 		93700F5D2448E5AA0008AC20 /* RequisitesTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesTableDataSource.swift; sourceTree = "<group>"; };
 		93700F622448E65F0008AC20 /* FailingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingValidator.swift; sourceTree = "<group>"; };
 		93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesCellModelProtocol.swift; sourceTree = "<group>"; };
+		93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisisteCellModelSpy.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				93700F512448E4990008AC20 /* SpyValidator.swift */,
+				93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */,
 				93700F622448E65F0008AC20 /* FailingValidator.swift */,
 			);
 			path = SpyClasses;
@@ -484,6 +487,7 @@
 				93700F522448E4990008AC20 /* SpyValidator.swift in Sources */,
 				931A441D24443B5600017466 /* ResultBag.swift in Sources */,
 				931A441424441F3700017466 /* BaseVC.swift in Sources */,
+				93700F6A244B3BB10008AC20 /* RequisisteCellModelSpy.swift in Sources */,
 				93700F492446CA950008AC20 /* RequisitesViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

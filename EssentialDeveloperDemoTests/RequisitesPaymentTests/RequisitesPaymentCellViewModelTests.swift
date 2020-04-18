@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxCocoa
 
 class RequisitesPaymentCellViewModelTests: XCTestCase {
 
@@ -48,21 +49,23 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         sut.didChangeText("<some value>")
         XCTAssertEqual(resultBag.values, [messsage])
     }
-    
+    ///doesn't work for some reason
     func test_sutCallsFinalValidation_onPreset() {
-        let model = makeAnyModel()
-        let sut = makeSUT(model)
+        let model = RequisisteCellModelSpy()
+        XCTAssertEqual(model.finalValidationCalls, 0)
+        _ = makeSUT(model)
+
+        XCTAssertEqual(model.finalValidationCalls, 1)
+        model.text.accept("test_preset2")
+        XCTAssertEqual(model.finalValidationCalls, 2)
     }
     
-    func makeSUT(_ model: RequisitesCellModel = RequisitesCellModel(validator: SpyValidator())) -> RequisitesCellViewModel {
+    func makeSUT(_ model: RequisitesCellModelProtocol = RequisitesCellModel(validator: SpyValidator())) -> RequisitesCellViewModel {
         let cellViewModel = RequisitesCellViewModel(model)
         
         return cellViewModel
     }
-    
-    func makeAnyModel() -> RequisitesCellModel {
-        return RequisitesCellModel(validator: SpyValidator())
-    }
+
     
     func anyError(message: String) -> Error {
         return TextError(message)
