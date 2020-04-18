@@ -57,6 +57,7 @@ class RequisitesDataSourceTests: XCTestCase {
         let sut = makeSUT([makeSection(type: type, cellCount: cellCount)])
         sut.mode = mode
         
+        
         return sut.numberOfRows(in: 0)
     }
     
