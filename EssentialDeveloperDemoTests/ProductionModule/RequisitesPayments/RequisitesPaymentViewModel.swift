@@ -27,6 +27,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         switch type {
         case .iban, .taxNumber:
             dataSource.mode = .search(type)
+            self.events.onNext(.reloadSections([1, 2]))
         case .text:
             dataSource.mode = .all
         }

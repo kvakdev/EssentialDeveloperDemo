@@ -29,5 +29,5 @@ extension ViewModelProtocol {
 
 enum BaseUIEvents {
     case reloadTableView
-    case reloadSections(sections: [Int])
+    case reloadSections(_ sections: [Int])
 }

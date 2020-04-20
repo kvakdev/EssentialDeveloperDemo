@@ -32,6 +32,36 @@ class RequisitesViewModelTests: XCTestCase {
         }
     }
     
+    func test_searchModeChange_sendsCorrectReloadTableSectionEvent() {
+        let dataSource = RequisitesTableDataSource()
+        let (ibanSection, ibanCellViewModel) = makeSection(.iban)
+        let taxSection = makeSection(.taxNumber).0
+        let textSection = makeSection(.text).0
+        let sections = [ibanSection,
+                        taxSection,
+                        textSection]
+        
+        dataSource.setSections(sections)
+        let (sut, _) = makeSUT(dataSource)
+        let resultBag = ResultBag(sut.events)
+        ibanCellViewModel.setCallback { type in
+            sut.handleCallback(type)
+        }
+        ibanCellViewModel.handleTapAction()
+        
+        guard let lastEvent = resultBag.values.last else {
+            XCTFail("no events in the bag")
+            return
+        }
+        
+        switch lastEvent {
+        case BaseUIEvents.reloadSections([1, 2]):
+            break
+        default:
+            XCTFail("incorrect events")
+        }
+    }
+    
     private func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)
         let dataSource = RequisitesTableDataSource()
