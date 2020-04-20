@@ -52,5 +52,69 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F6507B7-7225-4AEF-8706-9AB54FF17D5C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "setupObservers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "setupObservers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC - aca6ed3506749013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EssentialDeveloperDemoTests.RequisitesPaymentViewModel.(setupObservers in _F6EF0E69D41A1C57211D0DE06D46624F)() -&gt; ()"
+                  moduleName = "EssentialDeveloperDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "103">
+               </Location>
+               <Location
+                  uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC - 8b0fac25a7a96d87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in EssentialDeveloperDemoTests.RequisitesPaymentViewModel.(setupObservers in _F6EF0E69D41A1C57211D0DE06D46624F)() -&gt; ()"
+                  moduleName = "EssentialDeveloperDemoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "101">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
