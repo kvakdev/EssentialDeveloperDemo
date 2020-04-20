@@ -38,27 +38,6 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertEqual(receivedCellViewModel, neededCellViewModel)
     }
     
-    func test_returnsZeroSearchElements_forAllMode() {
-        let firstSection = makeSection(type: .iban, cellCount: 1)
-        let secondSection = makeSection(type: .search, cellCount: 10)
-        let sut = makeSUT([firstSection, secondSection])
-        let numberOfRowsInSearchSection = sut.numberOfRows(in: 1)
-        
-        XCTAssertEqual(numberOfRowsInSearchSection, 0)
-    }
-    
-    func test_sutReturnsCorrenctNumberOfSearchItems() {
-        let items = [Item.random(), Item.random()].compactMap { $0.toCellViewModel() }
-        let firstSection = makeSection(type: .iban, cellCount: 1)
-        let secondSection = makeSection(type: .search, cellCount: 10)
-        let sut = makeSUT([firstSection, secondSection])
-        sut.mode = .search(.iban)
-        sut.setSearchSection(items)
-        let numberOfRowsInSearchSection = sut.numberOfRows(in: 1)
-        
-        XCTAssertEqual(numberOfRowsInSearchSection, 2)
-    }
-    
     func test_returnNoViewModelsForEmptySectionsArray() {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }
@@ -72,6 +51,8 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertEqual(numberOfRowsFor(.text, cellCount: 3, in: .all), 3)
         XCTAssertEqual(numberOfRowsFor(.text, cellCount: 2, in: .search(.taxNumber)), 0)
         XCTAssertEqual(numberOfRowsFor(.text, cellCount: 1, in: .search(.iban)), 0)
+        XCTAssertEqual(numberOfRowsFor(.search, cellCount: 10, in: .search(.iban)), 10)
+        XCTAssertEqual(numberOfRowsFor(.search, cellCount: 10, in: .all), 0)
     }
     
     func numberOfRowsFor(_ type: RequisiteType, cellCount: Int, in mode: RequisitesPaymentViewModel.Mode) -> Int {
