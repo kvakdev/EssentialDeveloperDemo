@@ -42,4 +42,11 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
         
         return section.viewModels[indexPath.row]
     }
+    
+    func getCellViewModel(type: RequisiteType) -> RequisitesCellViewModelProtocol? {
+        let allCellViewModels = self.sections.flatMap { $0.viewModels }
+        let needed = allCellViewModels.first { $0.getType() == type }
+        
+        return needed
+    }
 }

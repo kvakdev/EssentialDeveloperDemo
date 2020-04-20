@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxSwift
 
 class RequisitesViewModelTests: XCTestCase {
 
@@ -66,6 +67,28 @@ class RequisitesViewModelTests: XCTestCase {
         }
     }
     
+    func test_textChangedCallbackOnSearchableItems_callsSearchOnModel() {
+        let modelSpy = RequisitesModelSpy()
+        let dataSource = RequisitesTableDataSource()
+        let (ibanSection, ibanCellViewModel) = makeSection(.iban)
+        let taxSection = makeSection(.taxNumber).0
+        let textSection = makeSection(.text).0
+        let sections = [ibanSection,
+                        taxSection,
+                        textSection]
+        
+        dataSource.setSections(sections)
+        let (sut, _) = makeSUT(dataSource, model: modelSpy)
+        
+        ibanCellViewModel.setCallback { type in
+            sut.handleCallback(type)
+        }
+        ibanCellViewModel.handleTapAction()
+        ibanCellViewModel.didChangeText("abc")
+        ibanCellViewModel.didChangeText("abc2")
+        XCTAssertEqual(modelSpy.callCount, 2)
+    }
+    
     private func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)
         let dataSource = RequisitesTableDataSource()
@@ -88,11 +111,34 @@ class RequisitesViewModelTests: XCTestCase {
         return (section, cellViewModel)
     }
     
-    private func makeSUT(_ dataSource: RequisitesTableDataSource? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
+    private func makeSUT(_ dataSource: RequisitesTableDataSource? = nil, model: RequisitesModelProtocol? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
         let source = dataSource ?? RequisitesTableDataSource()
-        let sut = RequisitesPaymentViewModel(source)
+        let sut = RequisitesPaymentViewModel(source, model: model)
         
         return (sut, source)
     }
 
+}
+
+class RequisitesModelSpy: RequisitesModelProtocol {
+    private var observers = [AnyObserver<[Item]>]()
+    var callCount = 0
+    
+    func searchItems(_ iban: String, taxNumber: String) -> Single<[Item]> {
+        callCount += 1
+        
+        return Observable.create { observer -> Disposable in
+            self.observers.append(observer)
+            
+            return Disposables.create()
+        }.asSingle()
+    }
+    
+    func complete(with items: [Item], at index: Int) {
+        guard observers.count > index else { return }
+        
+        let observer = observers[index]
+        observer.onNext(items)
+    }
+    
 }

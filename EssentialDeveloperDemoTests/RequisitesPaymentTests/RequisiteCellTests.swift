@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
+    var autoCompleteText: PublishSubject<String> = .init()
     var text: BehaviorRelay<String> = .init(value: "")
     var errorText: PublishSubject<String?> = .init()
     

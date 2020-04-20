@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol RequisitesCellViewModelProtocol {
     var text: BehaviorRelay<String> { get }
+    var autoCompleteText: PublishSubject<String> { get }
     var errorText: PublishSubject<String?> { get }
     
     func didChangeText(_ text: String)
@@ -20,6 +21,7 @@ protocol RequisitesCellViewModelProtocol {
 
 class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     let text: BehaviorRelay<String> = .init(value: "")
+    var autoCompleteText: PublishSubject<String> = .init()
     let errorText: PublishSubject<String?> = .init()
     
     private let model: RequisitesCellModelProtocol
@@ -40,6 +42,7 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     func didChangeText(_ text: String) {
         do {
             try model.validateProgress(text)
+            autoCompleteText.onNext(text)
             errorText.onNext(nil)
         } catch {
             errorText.onNext(error.localizedDescription)
