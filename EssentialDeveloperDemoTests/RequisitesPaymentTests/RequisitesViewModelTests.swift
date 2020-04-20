@@ -32,7 +32,7 @@ class RequisitesViewModelTests: XCTestCase {
         }
     }
     
-    func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
+    private func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)
         let dataSource = RequisitesTableDataSource()
         dataSource.setSections([searchSection])
@@ -46,7 +46,7 @@ class RequisitesViewModelTests: XCTestCase {
         return dataSource.mode
     }
     
-    func makeSection(_ type: RequisiteType) -> (RequisitesSectionViewModel, RequisitesCellViewModel) {
+    private func makeSection(_ type: RequisiteType) -> (RequisitesSectionViewModel, RequisitesCellViewModel) {
         let model = RequisitesCellModel(type, validator: SpyValidator())
         let cellViewModel = RequisitesCellViewModel(model)
         let section = RequisitesSectionViewModel([cellViewModel])
@@ -54,7 +54,7 @@ class RequisitesViewModelTests: XCTestCase {
         return (section, cellViewModel)
     }
     
-    func makeSUT(_ dataSource: RequisitesTableDataSource? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
+    private func makeSUT(_ dataSource: RequisitesTableDataSource? = nil) -> (RequisitesPaymentViewModel, RequisitesTableDataSourceProtocol) {
         let source = dataSource ?? RequisitesTableDataSource()
         let sut = RequisitesPaymentViewModel(source)
         
