@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>, UITableViewDataSource {
+class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>, UITableViewDataSource, UITableViewDelegate {
     let tableView: UITableView = UITableView()
     
     override func viewDidLoad() {
@@ -28,6 +28,7 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
     
     override func setup(_ viewModel: T) {
         tableView.dataSource = self
+        tableView.delegate = self
         
         viewModel.events.subscribe(onNext: { [weak self] event in
             switch event {
@@ -52,10 +53,26 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let vm = viewModel?.dataSource.viewModel(at: indexPath) else { return UITableViewCell() }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! RequisiteCell
-        cell.setViewModel(vm)
-        
-        return cell
+        switch vm.getType() {
+        case .search:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = vm.text.value
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! RequisiteCell
+            cell.setViewModel(vm)
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let vm = viewModel?.dataSource.viewModel(at: indexPath)
+        switch vm?.getType() {
+        case .search:
+            return 44
+        default:
+            return 100
+        }
     }
 }

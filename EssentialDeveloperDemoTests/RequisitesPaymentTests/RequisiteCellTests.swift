@@ -32,9 +32,9 @@ class RequisiteCellTests: XCTestCase {
 
     func test_sutChangesTextFieldValue_onViewModelChange() {
         let (sut, vm) = makeSUT()
-        XCTAssertEqual(sut.textField.text, "")
+        XCTAssertEqual(sut.inputTextField.text, "")
         vm.text.accept("preset1")
-        XCTAssertEqual(sut.textField.text, "preset1")
+        XCTAssertEqual(sut.inputTextField.text, "preset1")
     }
     
     func test_sutChangesErrorText_onViewModelChangedError() {
@@ -64,7 +64,7 @@ class RequisiteCellTests: XCTestCase {
         vmSpy.title = "<Test title>"
         let (sut, _) = makeSUT(vmSpy)
         
-        XCTAssertEqual(sut.titleLabel.text, vmSpy.title)
+        XCTAssertEqual(sut.cellTitleLabel.text, vmSpy.title)
     }
     
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {
