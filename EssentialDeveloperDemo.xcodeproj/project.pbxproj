@@ -47,6 +47,8 @@
 		93700F77244DF9050008AC20 /* RequisiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F75244DF8FE0008AC20 /* RequisiteCell.swift */; };
 		93700F7B244DFC590008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
 		93700F7C244DFC980008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
+		93700F7E244DFEC30008AC20 /* RequisiteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93700F7D244DFEC30008AC20 /* RequisiteCell.xib */; };
+		93700F7F244E01210008AC20 /* RequisiteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93700F7D244DFEC30008AC20 /* RequisiteCell.xib */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -95,6 +97,7 @@
 		93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitePaymentViewControllerTests.swift; sourceTree = "<group>"; };
 		93700F75244DF8FE0008AC20 /* RequisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCell.swift; sourceTree = "<group>"; };
 		93700F7A244DFC590008AC20 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		93700F7D244DFEC30008AC20 /* RequisiteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequisiteCell.xib; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
 				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
 				93700F75244DF8FE0008AC20 /* RequisiteCell.swift */,
+				93700F7D244DFEC30008AC20 /* RequisiteCell.xib */,
 				93700F4A2448E4120008AC20 /* RequisitesCellViewModel.swift */,
 				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
 				93700F7A244DFC590008AC20 /* Validator.swift */,
@@ -364,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				939D64502441F98400F634E3 /* LaunchScreen.storyboard in Resources */,
+				93700F7F244E01210008AC20 /* RequisiteCell.xib in Resources */,
 				939D644D2441F98400F634E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93700F7E244DFEC30008AC20 /* RequisiteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

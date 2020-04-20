@@ -19,6 +19,8 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
     
     fileprivate func setupSubviews() {
         tableView.frame = self.view.bounds
+        tableView.rowHeight = 122
+        
         view.addSubview(tableView)
         
         tableView.register(RequisiteCell.self, forCellReuseIdentifier: "cellId")

@@ -22,12 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func showFirstScreen() {
         let vc = RequisitesViewController<RequisitesPaymentViewModel>()
         let dataSource = RequisitesTableDataSource()
-        let cellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
-        let section = RequisitesSectionViewModel([RequisitesCellViewModel(cellModel)], type: .iban)
-        dataSource.setSections([section])
         let model = RequisitesModel()
         let vm = RequisitesPaymentViewModel(dataSource, model: model)
+        let cellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
+        let cellViewModel = RequisitesCellViewModel(cellModel)
+        cellViewModel.setCallback { type in
+            vm.handleCallback(type)
+        }
+        let section = RequisitesSectionViewModel([cellViewModel], type: .iban)
         vc.viewModel = vm
+        dataSource.setSections([section])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: vc)

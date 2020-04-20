@@ -70,7 +70,7 @@ class RequisiteCellTests: XCTestCase {
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {
         let model = RequisisteCellModelSpy()
         let viewModel = RequisitesCellViewModel(model)
-        let cell = RequisiteCell(style: .default, reuseIdentifier: "")
+        let cell = RequisiteCell()
         cell.setViewModel(vm ?? viewModel)
         
         return (cell, vm ?? viewModel)

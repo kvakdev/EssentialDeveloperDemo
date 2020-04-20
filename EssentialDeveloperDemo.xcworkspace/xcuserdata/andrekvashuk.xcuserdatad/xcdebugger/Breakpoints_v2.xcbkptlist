@@ -53,67 +53,30 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "4F6507B7-7225-4AEF-8706-9AB54FF17D5C"
+            uuid = "6E12F6F0-12F3-461B-A776-B7E34C5F928E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "setupObservers()"
-            landmarkType = "7">
+            scope = "1"
+            stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC"
+            uuid = "800899D7-F3D4-4769-9793-167198A7664F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisiteCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "setupObservers()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "setup()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC - aca6ed3506749013"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialDeveloperDemoTests.RequisitesPaymentViewModel.(setupObservers in _F6EF0E69D41A1C57211D0DE06D46624F)() -&gt; ()"
-                  moduleName = "EssentialDeveloperDemoTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "103">
-               </Location>
-               <Location
-                  uuid = "58B173AC-01CA-4886-8571-B502AC3CA4BC - 8b0fac25a7a96d87"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; () in EssentialDeveloperDemoTests.RequisitesPaymentViewModel.(setupObservers in _F6EF0E69D41A1C57211D0DE06D46624F)() -&gt; ()"
-                  moduleName = "EssentialDeveloperDemoTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "101">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
