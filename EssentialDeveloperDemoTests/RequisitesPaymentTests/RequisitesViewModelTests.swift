@@ -49,6 +49,10 @@ class RequisitesViewModelTests: XCTestCase {
         }
         ibanCellViewModel.handleTapAction()
         
+        guard resultBag.values.count == 1 else {
+            XCTFail("Expected one event in the bag, got \(resultBag.values.count) instead")
+            return
+        }
         guard let lastEvent = resultBag.values.last else {
             XCTFail("no events in the bag")
             return
