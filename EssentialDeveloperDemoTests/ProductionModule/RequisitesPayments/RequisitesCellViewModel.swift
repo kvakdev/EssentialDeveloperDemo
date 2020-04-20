@@ -10,7 +10,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class RequisitesCellViewModel: NSObject {
+protocol RequisitesCellViewModelProtocol {
+    var text: BehaviorRelay<String> { get }
+    var errorText: PublishSubject<String?> { get }
+    
+    func didChangeText(_ text: String)
+    func handleTapAction()
+}
+
+class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     let text: BehaviorRelay<String> = .init(value: "")
     let errorText: PublishSubject<String?> = .init()
     
@@ -46,7 +54,7 @@ class RequisitesCellViewModel: NSObject {
         self.callback = callback
     }
     
-    func setupObservers() {
+    private func setupObservers() {
         model.text.subscribe(onNext: { [weak self] text in
             self?.setText(text)
         }).disposed(by: disposeBag)

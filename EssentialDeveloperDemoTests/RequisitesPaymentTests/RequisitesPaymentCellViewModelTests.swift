@@ -49,7 +49,7 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         sut.didChangeText("<some value>")
         XCTAssertEqual(resultBag.values, [messsage])
     }
-    ///doesn't work for some reason
+    ///doesn't work for some reason would be great if we could figure it out
     func test_sutCallsFinalValidation_onPreset() {
         let model = RequisisteCellModelSpy()
         XCTAssertEqual(model.finalValidationCalls, 0)
