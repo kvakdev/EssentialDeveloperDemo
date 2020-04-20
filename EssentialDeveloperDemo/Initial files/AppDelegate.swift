@@ -23,15 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = RequisitesViewController<RequisitesPaymentViewModel>()
         let dataSource = RequisitesTableDataSource()
         let model = RequisitesModel()
-        let vm = RequisitesPaymentViewModel(dataSource, model: model)
         let cellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
         let cellViewModel = RequisitesCellViewModel(cellModel)
+        let section = RequisitesSectionViewModel([cellViewModel], type: .iban)
+        let searchSection = RequisitesSectionViewModel([], type: .search)
+        dataSource.setSections([section, searchSection])
+        
+        let vm = RequisitesPaymentViewModel(dataSource, model: model)
         cellViewModel.setCallback { type in
             vm.handleCallback(type)
         }
-        let section = RequisitesSectionViewModel([cellViewModel], type: .iban)
         vc.viewModel = vm
-        dataSource.setSections([section])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: vc)

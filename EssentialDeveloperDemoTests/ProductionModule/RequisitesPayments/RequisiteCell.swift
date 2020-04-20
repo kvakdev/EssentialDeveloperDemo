@@ -13,6 +13,7 @@ public class RequisiteCell: UITableViewCell {
     let inputTextField = UITextField()
     let errorLabel = UILabel()
     let cellTitleLabel = UILabel()
+    let button = UIButton()
     
     private var vm: RequisitesCellViewModelProtocol?
     private var _disposeBag = DisposeBag()
@@ -69,11 +70,23 @@ public class RequisiteCell: UITableViewCell {
         ]
         NSLayoutConstraint.activate(errorLabelConstraints)
         
+        button.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(button)
+        let buttonConstraints = [
+            button.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            button.leftAnchor.constraint(equalTo: leftAnchor),
+            button.rightAnchor.constraint(equalTo: rightAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(buttonConstraints)
+        
         self.inputTextField.rx.controlEvent(.editingChanged)
             .withLatestFrom(inputTextField.rx.text)
             .subscribe(onNext: { [weak self] value in
                 self?.handle(value ?? "")
         }).disposed(by: _disposeBag)
+        
+        self.button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
     }
     
     func setViewModel(_ vm: RequisitesCellViewModelProtocol) {
@@ -88,6 +101,11 @@ public class RequisiteCell: UITableViewCell {
         }).disposed(by: _disposeBag)
         
         cellTitleLabel.text = vm.title
+    }
+    
+    @objc func handleTap() {
+        inputTextField.becomeFirstResponder()
+        self.vm?.handleTapAction()
     }
     
     @objc func handle(_ text: String) {

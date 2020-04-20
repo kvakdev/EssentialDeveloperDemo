@@ -34,6 +34,7 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
             case .reloadTableView:
                 self?.tableView.reloadData()
             case .reloadSections(let sections):
+                guard viewModel.dataSource.numberOfSections() > sections.max() ?? 0 else { return }
                 let set = IndexSet.init(sections)
                 self?.tableView.reloadSections(set, with: .automatic)
             }
