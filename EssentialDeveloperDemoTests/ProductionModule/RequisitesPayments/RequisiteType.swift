@@ -12,4 +12,5 @@ enum RequisiteType {
     case iban
     case taxNumber
     case text
+    case search
 }

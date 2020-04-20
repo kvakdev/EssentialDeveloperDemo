@@ -38,6 +38,15 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertEqual(receivedCellViewModel, neededCellViewModel)
     }
     
+    func test_returnsZeroSearchElements_forAllMode() {
+        let firstSection = makeSection(type: .iban, cellCount: 1)
+        let secondSection = makeSection(type: .search, cellCount: 10)
+        let sut = makeSUT([firstSection, secondSection])
+        let numberOfRowsInSearchSection = sut.numberOfRows(in: 1)
+        
+        XCTAssertEqual(numberOfRowsInSearchSection, 0)
+    }
+    
     func test_returnNoViewModelsForEmptySectionsArray() {
         XCTAssertNil(makeSUT().viewModel(at: IndexPath(row: 0, section: 0)))
     }

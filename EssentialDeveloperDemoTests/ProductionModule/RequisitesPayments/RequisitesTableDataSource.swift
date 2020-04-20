@@ -23,9 +23,9 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
         
         switch mode {
         case .all:
-            return neededSection.viewModels.count
+            return neededSection.viewModels.filter { $0.getType() != .search }.count
         case .search(let type):
-            return neededSection.viewModels.filter { $0.getType() == type }.count
+            return neededSection.viewModels.filter { $0.getType() == type || $0.getType() == .search }.count
         }
     }
     
@@ -48,5 +48,11 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
         let needed = allCellViewModels.first { $0.getType() == type }
         
         return needed
+    }
+    
+    func setSearchSection(_ viewModels: [RequisitesCellViewModel]) {
+//
+//        let section = RequisitesSectionViewModel(viewModels)
+//        self.sections.append(section)
     }
 }

@@ -12,18 +12,18 @@ import RxCocoa
 class RequisitesCellModel: RequisitesCellModelProtocol {
     let type: RequisiteType
     let text: BehaviorRelay<String> = .init(value: "")
-    let validator: ValidatorProtocol
+    let validator: ValidatorProtocol?
     
-    init(_ type: RequisiteType = .text, validator: ValidatorProtocol) {
+    init(_ type: RequisiteType = .text, validator: ValidatorProtocol?) {
         self.type = type
         self.validator = validator
     }
     
     func validateProgress(_ string: String) throws {
-        try validator.validateProgress(string)
+        try validator?.validateProgress(string)
     }
     
     func validateFinal(_ string: String) throws {
-        try validator.validateFinal(string)
+        try validator?.validateFinal(string)
     }
 }

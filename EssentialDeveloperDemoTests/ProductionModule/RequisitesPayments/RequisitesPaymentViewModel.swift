@@ -72,6 +72,8 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
             self.events.onNext(.reloadSections([1, 2]))
         case .text:
             dataSource.mode = .all
+        case .search:
+            break
         }
     }
     
@@ -85,9 +87,22 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     
     private func searchForIban(_ text: String) {
         model.searchItems(text, taxNumber: "").subscribe(onSuccess: { items in
-            //handle result
+//            let cellViewModels = items.compactMap { item in
+//                let model = RequisitesCellModel(.text, validator: nil)
+//                model.text.accept("Title: \(item.title ?? "")")
+//                let viewModel = RequisitesCellViewModel(model)
+//                viewModel.setCallback { [weak self] _ in
+//                    self?.handleSelection(item)
+//                }
+//            }
+//            let section = RequisitesSectionViewModel(cellViewModels)
+//            dataSource.
         }, onError: { [weak self] in self?.showError($0) })
         .disposed(by: _disposeBag)
+    }
+    
+    private func handleSelection(_ item: Item) {
+        
     }
     
     private func showError(_ error: Error) {
