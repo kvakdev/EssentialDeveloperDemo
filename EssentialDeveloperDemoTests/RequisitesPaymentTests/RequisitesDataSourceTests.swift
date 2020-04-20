@@ -22,16 +22,16 @@ class RequisitesDataSourceTests: XCTestCase {
     }
     
     func test_numberOfSections_isEqualToNumberOfSectionModels() {
-        let sectionModels = [1...3].compactMap { _ in RequisitesSectionViewModel([]) }
+        let sectionModels = [1...3].compactMap { _ in RequisitesSectionViewModel([], type: .text) }
         let sut = makeSUT(sectionModels)
         XCTAssertEqual(sut.numberOfSections(), sectionModels.count)
     }
     
     func test_returnsCorrectSectionViewModel_forCellAtIndexPath() {
-        let firstSection = RequisitesSectionViewModel([])
+        let firstSection = RequisitesSectionViewModel([], type: .text)
         let model = RequisitesCellModel(.text, validator: SpyValidator())
         let neededCellViewModel = RequisitesCellViewModel(model)
-        let secondSectionViewModel = RequisitesSectionViewModel([neededCellViewModel])
+        let secondSectionViewModel = RequisitesSectionViewModel([neededCellViewModel], type: .text)
         let sut = makeSUT([firstSection, secondSectionViewModel])
         let receivedCellViewModel = sut.viewModel(at: IndexPath(row: 0, section: 1))
         
@@ -45,6 +45,18 @@ class RequisitesDataSourceTests: XCTestCase {
         let numberOfRowsInSearchSection = sut.numberOfRows(in: 1)
         
         XCTAssertEqual(numberOfRowsInSearchSection, 0)
+    }
+    
+    func test_sutReturnsCorrenctNumberOfSearchItems() {
+        let items = [Item.random(), Item.random()].compactMap { $0.toCellViewModel() }
+        let firstSection = makeSection(type: .iban, cellCount: 1)
+        let secondSection = makeSection(type: .search, cellCount: 10)
+        let sut = makeSUT([firstSection, secondSection])
+        sut.mode = .search(.iban)
+        sut.setSearchSection(items)
+        let numberOfRowsInSearchSection = sut.numberOfRows(in: 1)
+        
+        XCTAssertEqual(numberOfRowsInSearchSection, 2)
     }
     
     func test_returnNoViewModelsForEmptySectionsArray() {
@@ -75,7 +87,7 @@ class RequisitesDataSourceTests: XCTestCase {
             let cellViewModel = RequisitesCellViewModel(model)
             return cellViewModel
         }
-        return RequisitesSectionViewModel(cellViewModels)
+        return RequisitesSectionViewModel(cellViewModels, type: type)
     }
     
     func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesTableDataSource {

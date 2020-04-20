@@ -51,8 +51,8 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
     }
     
     func setSearchSection(_ viewModels: [RequisitesCellViewModel]) {
-//
-//        let section = RequisitesSectionViewModel(viewModels)
-//        self.sections.append(section)
+        let section = self.sections.first { $0.type == .search }
+        guard let searchSection = section else { return }
+        searchSection.set(viewModels)
     }
 }

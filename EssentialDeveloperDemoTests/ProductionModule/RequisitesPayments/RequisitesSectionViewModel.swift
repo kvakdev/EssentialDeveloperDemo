@@ -9,9 +9,15 @@
 import Foundation
 
 class RequisitesSectionViewModel: NSObject {
-    let viewModels: [RequisitesCellViewModel]
+    let type: RequisiteType
+    private(set) var viewModels: [RequisitesCellViewModel]
     
-    init(_ cellViewModels: [RequisitesCellViewModel]) {
+    init(_ cellViewModels: [RequisitesCellViewModel], type: RequisiteType) {
         self.viewModels = cellViewModels
+        self.type = type
+    }
+    
+    func set(_ viewModels: [RequisitesCellViewModel]) {
+        self.viewModels = viewModels
     }
 }

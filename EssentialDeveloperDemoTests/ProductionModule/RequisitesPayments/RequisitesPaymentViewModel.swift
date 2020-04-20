@@ -86,17 +86,16 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
     
     private func searchForIban(_ text: String) {
-        model.searchItems(text, taxNumber: "").subscribe(onSuccess: { items in
-//            let cellViewModels = items.compactMap { item in
-//                let model = RequisitesCellModel(.text, validator: nil)
-//                model.text.accept("Title: \(item.title ?? "")")
-//                let viewModel = RequisitesCellViewModel(model)
-//                viewModel.setCallback { [weak self] _ in
-//                    self?.handleSelection(item)
-//                }
-//            }
-//            let section = RequisitesSectionViewModel(cellViewModels)
-//            dataSource.
+        model.searchItems(text, taxNumber: "").subscribe(onSuccess: { [weak self] items in
+            let cellViewModels = items.compactMap { item -> RequisitesCellViewModel in
+                let viewModel = item.toCellViewModel()
+                viewModel.setCallback { [weak self] _ in
+                    self?.handleSelection(item)
+                }
+                return viewModel
+            }
+            
+            self?.dataSource.setSearchSection(cellViewModels)
         }, onError: { [weak self] in self?.showError($0) })
         .disposed(by: _disposeBag)
     }
@@ -107,5 +106,13 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     
     private func showError(_ error: Error) {
         //handle error somehow
+    }
+}
+
+extension Item {
+    func toCellViewModel() -> RequisitesCellViewModel {
+        let model = RequisitesCellModel(.search, validator: nil)
+        model.text.accept("Title: \(self.title ?? "")")
+        return RequisitesCellViewModel(model)
     }
 }
