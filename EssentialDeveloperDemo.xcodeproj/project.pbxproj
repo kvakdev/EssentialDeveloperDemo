@@ -42,6 +42,11 @@
 		93700F6A244B3BB10008AC20 /* RequisisteCellModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */; };
 		93700F6E244B3D360008AC20 /* RequisiteCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F6D244B3D360008AC20 /* RequisiteCellTests.swift */; };
 		93700F70244DD1B60008AC20 /* RequisitesModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F6F244DD1B60008AC20 /* RequisitesModelSpy.swift */; };
+		93700F74244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */; };
+		93700F76244DF8FE0008AC20 /* RequisiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F75244DF8FE0008AC20 /* RequisiteCell.swift */; };
+		93700F77244DF9050008AC20 /* RequisiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F75244DF8FE0008AC20 /* RequisiteCell.swift */; };
+		93700F7B244DFC590008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
+		93700F7C244DFC980008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -87,6 +92,9 @@
 		93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisisteCellModelSpy.swift; sourceTree = "<group>"; };
 		93700F6D244B3D360008AC20 /* RequisiteCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCellTests.swift; sourceTree = "<group>"; };
 		93700F6F244DD1B60008AC20 /* RequisitesModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesModelSpy.swift; sourceTree = "<group>"; };
+		93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitePaymentViewControllerTests.swift; sourceTree = "<group>"; };
+		93700F75244DF8FE0008AC20 /* RequisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCell.swift; sourceTree = "<group>"; };
+		93700F7A244DFC590008AC20 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -156,8 +164,10 @@
 			children = (
 				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
 				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
+				93700F75244DF8FE0008AC20 /* RequisiteCell.swift */,
 				93700F4A2448E4120008AC20 /* RequisitesCellViewModel.swift */,
 				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
+				93700F7A244DFC590008AC20 /* Validator.swift */,
 				93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */,
 				93700F4E2448E4630008AC20 /* RequisitesSectionViewModel.swift */,
 				93700F532448E4D20008AC20 /* RequisitesTableDataSourceProtocol.swift */,
@@ -193,6 +203,7 @@
 				93700F482446CA950008AC20 /* RequisitesViewModelTests.swift */,
 				93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */,
 				93700F6D244B3D360008AC20 /* RequisiteCellTests.swift */,
+				93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */,
 			);
 			path = RequisitesPaymentTests;
 			sourceTree = "<group>";
@@ -452,8 +463,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93700F7C244DFC980008AC20 /* Validator.swift in Sources */,
 				93700F582448E5250008AC20 /* RequisitesCellViewModel.swift in Sources */,
 				93700F5F2448E5D50008AC20 /* RequisiteType.swift in Sources */,
+				93700F77244DF9050008AC20 /* RequisiteCell.swift in Sources */,
 				93700F602448E5D80008AC20 /* ValidatorProtocol.swift in Sources */,
 				939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */,
 				931A441324441F3400017466 /* ViewModelProtocol.swift in Sources */,
@@ -474,15 +487,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				939D645B2441F98400F634E3 /* RequisitesDataSourceTests.swift in Sources */,
+				93700F7B244DFC590008AC20 /* Validator.swift in Sources */,
 				93700F5C2448E5680008AC20 /* RequisiteType.swift in Sources */,
 				93700F5A2448E5410008AC20 /* ValidatorProtocol.swift in Sources */,
 				931A440E24441E3400017466 /* BaseViewModel.swift in Sources */,
+				93700F74244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift in Sources */,
 				93700F4B2448E4120008AC20 /* RequisitesCellViewModel.swift in Sources */,
 				931A4418244422BF00017466 /* RequisitesPaymentViewModel.swift in Sources */,
 				93700F70244DD1B60008AC20 /* RequisitesModelSpy.swift in Sources */,
 				93700F4F2448E4630008AC20 /* RequisitesSectionViewModel.swift in Sources */,
 				93700F542448E4D20008AC20 /* RequisitesTableDataSourceProtocol.swift in Sources */,
 				931A441B2444235800017466 /* BaseViewControllerTests.swift in Sources */,
+				93700F76244DF8FE0008AC20 /* RequisiteCell.swift in Sources */,
 				931A441F24443F4A00017466 /* BaseViewModelSpy.swift in Sources */,
 				93700F6E244B3D360008AC20 /* RequisiteCellTests.swift in Sources */,
 				93700F472446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift in Sources */,

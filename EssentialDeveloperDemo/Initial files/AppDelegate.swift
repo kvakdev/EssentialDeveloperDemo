@@ -20,7 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func showFirstScreen() {
- 
+        let vc = RequisitesViewController<RequisitesPaymentViewModel>()
+        let dataSource = RequisitesTableDataSource()
+        let cellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
+        let section = RequisitesSectionViewModel([RequisitesCellViewModel(cellModel)], type: .iban)
+        dataSource.setSections([section])
+        let model = RequisitesModel()
+        let vm = RequisitesPaymentViewModel(dataSource, model: model)
+        vc.viewModel = vm
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
     }
 }
 

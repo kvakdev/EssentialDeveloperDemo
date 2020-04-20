@@ -43,21 +43,23 @@ class RequisitesModel: RequisitesModelProtocol {
 }
 
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
-    
+    var dataSource: RequisitesTableDataSourceProtocol { get }
 }
 
 class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProtocol {
+    var dataSource: RequisitesTableDataSourceProtocol { _dataSource }
+    
     enum Mode {
         case all
         case search(RequisiteType)
     }
-    let dataSource: RequisitesTableDataSource
+    let _dataSource: RequisitesTableDataSource
     let model: RequisitesModelProtocol
     
     private let _disposeBag = DisposeBag()
     
     init(_ dataSource: RequisitesTableDataSource, model: RequisitesModelProtocol?) {
-        self.dataSource = dataSource
+        self._dataSource = dataSource
         self.model = model ?? RequisitesModel()
         
         super.init()
@@ -68,10 +70,10 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     func handleCallback(_ type: RequisiteType) {
         switch type {
         case .iban, .taxNumber:
-            dataSource.mode = .search(type)
+            _dataSource.mode = .search(type)
             self.events.onNext(.reloadSections([1, 2]))
         case .text:
-            dataSource.mode = .all
+            _dataSource.mode = .all
         case .search:
             break
         }
@@ -95,7 +97,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
                 return viewModel
             }
             
-            self?.dataSource.setSearchSection(cellViewModels)
+            self?._dataSource.setSearchSection(cellViewModels)
         }, onError: { [weak self] in self?.showError($0) })
         .disposed(by: _disposeBag)
     }

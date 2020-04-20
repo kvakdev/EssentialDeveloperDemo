@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class BaseVC<T: ViewModelProtocol>: UIViewController {
-    var viewModel: T?
+    var viewModel: T? {
+        didSet {
+            guard let vm = viewModel else { return }
+            setup(vm)
+        }
+    }
+    let disposeBag = DisposeBag()
+    
+    func setup(_ viewModel: T) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
