@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
+    var title: String = ""
     var autoCompleteText: PublishSubject<String> = .init()
     var text: BehaviorRelay<String> = .init(value: "")
     var errorText: PublishSubject<String?> = .init()
@@ -31,6 +32,7 @@ class RequisiteCellTests: XCTestCase {
     class RequisiteCell: UITableViewCell {
         let textField = UITextField()
         let errorLabel = UILabel()
+        let titleLabel = UILabel()
         
         private var vm: RequisitesCellViewModelProtocol?
         private let _disposeBag = DisposeBag()
@@ -65,6 +67,8 @@ class RequisiteCellTests: XCTestCase {
             vm.errorText.subscribe(onNext: { [weak self] errorMessage in
                 self?.errorLabel.text = errorMessage
             }).disposed(by: _disposeBag)
+            
+            titleLabel.text = vm.title
         }
         
         @objc func handle(_ text: String) {
@@ -99,6 +103,14 @@ class RequisiteCellTests: XCTestCase {
         let (sut, _) = makeSUT(vmSpy)
         sut.handle(text)
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    func test_titleLabelText_isTheSameAsViewModelTitleText() {
+        let vmSpy = RequisitesCellViewModelSpy()
+        vmSpy.title = "<Test title>"
+        let (sut, _) = makeSUT(vmSpy)
+        
+        XCTAssertEqual(sut.titleLabel.text, vmSpy.title)
     }
     
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {

@@ -10,13 +10,15 @@ import Foundation
 import RxCocoa
 
 class RequisitesCellModel: RequisitesCellModelProtocol {
+    let requisiteTitle: String
     let type: RequisiteType
     let text: BehaviorRelay<String> = .init(value: "")
     let validator: ValidatorProtocol?
     
-    init(_ type: RequisiteType = .text, validator: ValidatorProtocol?) {
+    init(_ type: RequisiteType = .text, validator: ValidatorProtocol?, title: String = "<Title>") {
         self.type = type
         self.validator = validator
+        self.requisiteTitle = title
     }
     
     func validateProgress(_ string: String) throws {

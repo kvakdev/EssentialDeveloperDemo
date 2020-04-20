@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol RequisitesCellViewModelProtocol {
+    var title: String { get }
     var text: BehaviorRelay<String> { get }
     var autoCompleteText: PublishSubject<String> { get }
     var errorText: PublishSubject<String?> { get }
@@ -20,6 +21,7 @@ protocol RequisitesCellViewModelProtocol {
 }
 
 class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
+    var title: String { model.requisiteTitle }
     let text: BehaviorRelay<String> = .init(value: "")
     var autoCompleteText: PublishSubject<String> = .init()
     let errorText: PublishSubject<String?> = .init()

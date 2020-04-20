@@ -10,6 +10,7 @@ import Foundation
 import RxCocoa
 
 protocol RequisitesCellModelProtocol {
+    var requisiteTitle: String { get }
     var type: RequisiteType { get }
     var text: BehaviorRelay<String> { get }
 

@@ -10,6 +10,7 @@ import Foundation
 import RxCocoa
 
 class RequisisteCellModelSpy: RequisitesCellModelProtocol {
+    var requisiteTitle: String = ""
     var type: RequisiteType = .text
     var text: BehaviorRelay<String> = .init(value: "")
     
