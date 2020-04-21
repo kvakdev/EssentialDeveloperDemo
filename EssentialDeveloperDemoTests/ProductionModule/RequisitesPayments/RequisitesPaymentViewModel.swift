@@ -26,7 +26,7 @@ class Item {
         let iban = Int.random(in: 100000000...200000000)
         let taxNumber = Int.random(in: 100000000...200000000)
         let title = Int.random(in: 100000000...200000000)
-        return Item(id: Int.random(in: 0...1000), iban: "\(iban)", taxNumber: "\(taxNumber)", title: "Title \(title)")
+        return Item(id: Int.random(in: 0...1000), iban: "\(iban)", taxNumber: "\(taxNumber)", title: "Some title \(title)")
     }
 }
 
@@ -104,7 +104,11 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
     
     private func handleSelection(_ item: Item) {
-        
+        print("selected \(item)")
+        let viewModel = _dataSource.getCellViewModel(type: .iban)
+        viewModel?.text.accept(item.iban ?? "")
+        self._dataSource.mode = .all
+        self.events.onNext(.reloadTableView)
     }
     
     private func showError(_ error: Error) {
@@ -115,7 +119,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
 extension Item {
     func toCellViewModel() -> RequisitesCellViewModel {
         let model = RequisitesCellModel(.search, validator: nil)
-        model.text.accept("Title: \(self.title ?? "")")
+        model.text.accept("\(self.title ?? "")")
         return RequisitesCellViewModel(model)
     }
 }

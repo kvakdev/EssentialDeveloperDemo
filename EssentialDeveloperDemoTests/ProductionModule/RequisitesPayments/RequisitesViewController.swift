@@ -75,4 +75,10 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
             return 100
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vm = viewModel?.dataSource.viewModel(at: indexPath) {
+            vm.handleTapAction()
+        }
+    }
 }
