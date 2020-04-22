@@ -98,7 +98,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
             }
             
             self?._dataSource.setSearchSection(cellViewModels)
-            self?.events.onNext(.reloadSections([1]))
+            self?.events.onNext(.reloadSections([1, 2]))
         }, onError: { [weak self] in self?.showError($0) })
         .disposed(by: _disposeBag)
     }

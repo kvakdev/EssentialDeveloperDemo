@@ -23,14 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = RequisitesViewController<RequisitesPaymentViewModel>()
         let dataSource = RequisitesTableDataSource()
         let model = RequisitesModel()
-        let cellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
-        let cellViewModel = RequisitesCellViewModel(cellModel)
-        let section = RequisitesSectionViewModel([cellViewModel], type: .iban)
+        let ibanCellModel = RequisitesCellModel(.iban, validator: Validator(), title: "IBAN")
+        let ibanCellViewModel = RequisitesCellViewModel(ibanCellModel)
+        let ibanSection = RequisitesSectionViewModel([ibanCellViewModel], type: .iban)
+        let taxCellModel = RequisitesCellModel(.taxNumber, validator: Validator(), title: "Tax payer number")
+        let taxCellViewModel = RequisitesCellViewModel(taxCellModel)
+        let taxSection = RequisitesSectionViewModel([taxCellViewModel], type: .taxNumber)
         let searchSection = RequisitesSectionViewModel([], type: .search)
-        dataSource.setSections([section, searchSection])
+        dataSource.setSections([ibanSection, taxSection, searchSection])
         
         let vm = RequisitesPaymentViewModel(dataSource, model: model)
-        cellViewModel.setCallback { type in
+        ibanCellViewModel.setCallback { type in
             vm.handleCallback(type)
         }
         vc.viewModel = vm

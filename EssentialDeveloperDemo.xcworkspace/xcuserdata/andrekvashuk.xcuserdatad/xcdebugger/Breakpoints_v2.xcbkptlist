@@ -82,22 +82,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "142897DE-9DD4-4CCC-8AE3-96BAE175E699"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "init(_:model:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "809CA21E-5F2F-43A0-A6D8-141CAA27239E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -146,22 +130,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4930DA8C-D015-4FC4-806D-3B7CE79964C6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "getCellViewModel(type:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A3B240EF-C7BA-44CF-9553-5DFCC0E0A63A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -194,161 +162,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E25DC7DB-ECE7-4EFE-9DFA-98E0AD10C3C0"
+            uuid = "A115A9F2-EEE6-4DF8-A9C0-204164C94A42"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesPaymentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "setSearchSection(_:)"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "searchForIban(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB8E6798-1B55-4493-A2F7-B4A2D3BDF86E"
+            uuid = "A8DBE2B6-92D0-43B7-A20B-1A9E51D81B38"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "setSearchSection(_:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BB8E6798-1B55-4493-A2F7-B4A2D3BDF86E - 4318c0106b964489"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialDeveloperDemo.RequisitesTableDataSource.setSearchSection(Swift.Array&lt;EssentialDeveloperDemo.RequisitesCellViewModel&gt;) -&gt; ()"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  uuid = "BB8E6798-1B55-4493-A2F7-B4A2D3BDF86E - d2359022c84fef70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (EssentialDeveloperDemo.RequisitesSectionViewModel) -&gt; Swift.Bool in EssentialDeveloperDemo.RequisitesTableDataSource.setSearchSection(Swift.Array&lt;EssentialDeveloperDemo.RequisitesCellViewModel&gt;) -&gt; ()"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6CAAF25A-0167-49BB-814B-1FE129DCC20B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "numberOfRows(in:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6CAAF25A-0167-49BB-814B-1FE129DCC20B - 6d2fb7fb09561fef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialDeveloperDemo.RequisitesTableDataSource.numberOfRows(in: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "416">
-               </Location>
-               <Location
-                  uuid = "6CAAF25A-0167-49BB-814B-1FE129DCC20B - 7d27793852e21216"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (EssentialDeveloperDemo.RequisitesCellViewModel) -&gt; Swift.Bool in EssentialDeveloperDemo.RequisitesTableDataSource.numberOfRows(in: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E3AA55BF-33E9-48EA-81BE-5C46DC60794B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "numberOfRows(in:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E3AA55BF-33E9-48EA-81BE-5C46DC60794B - 6d2fb7fb09561fef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EssentialDeveloperDemo.RequisitesTableDataSource.numberOfRows(in: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "754">
-               </Location>
-               <Location
-                  uuid = "E3AA55BF-33E9-48EA-81BE-5C46DC60794B - 9a524d2a3ec12457"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (EssentialDeveloperDemo.RequisitesCellViewModel) -&gt; Swift.Bool in EssentialDeveloperDemo.RequisitesTableDataSource.numberOfRows(in: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "EssentialDeveloperDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrekvashuk/projects/education/EssentialDeveloperDemo/EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/RequisitesTableDataSource.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

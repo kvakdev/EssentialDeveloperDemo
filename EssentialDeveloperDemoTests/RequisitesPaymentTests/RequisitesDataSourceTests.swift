@@ -55,6 +55,21 @@ class RequisitesDataSourceTests: XCTestCase {
         XCTAssertEqual(numberOfRowsFor(.search, cellCount: 10, in: .all), 0)
     }
     
+    func test_numberOfSections_isTheSame() {
+        let requisiteModel = RequisitesCellModel(.search, validator: nil, title: "some title")
+        let cellViewModel = RequisitesCellViewModel(requisiteModel)
+        let searchSection = RequisitesSectionViewModel([cellViewModel], type: .search)
+        let sut = makeSUT([makeSection(type: .iban, cellCount: 1), makeSection(type: .taxNumber, cellCount: 1), searchSection])
+        let initialSections = sut.numberOfSections()
+        sut.mode = .search(.iban)
+        let searchNumberOfSections = sut.numberOfSections()
+        cellViewModel.handleTapAction()
+        XCTAssertEqual(initialSections, searchNumberOfSections)
+//        sut.mode = .all
+        let finalNumberOfSection = sut.numberOfSections()
+        XCTAssertEqual(finalNumberOfSection, initialSections)
+    }
+
     func numberOfRowsFor(_ type: RequisiteType, cellCount: Int, in mode: RequisitesPaymentViewModel.Mode) -> Int {
         let sut = makeSUT([makeSection(type: type, cellCount: cellCount)])
         sut.mode = mode
@@ -70,6 +85,7 @@ class RequisitesDataSourceTests: XCTestCase {
         }
         return RequisitesSectionViewModel(cellViewModels, type: type)
     }
+    
     
     func makeSUT(_ sections: [RequisitesSectionViewModel] = []) -> RequisitesTableDataSource {
         let sut = RequisitesTableDataSource()
