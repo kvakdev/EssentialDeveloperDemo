@@ -23,6 +23,10 @@ class RequisitesModelSpy: RequisitesModelProtocol {
         }.asSingle()
     }
     
+    func didSelect(_ item: Item) {
+        
+    }
+    
     func complete(with items: [Item], at index: Int) {
         guard observers.count > index else { return }
         

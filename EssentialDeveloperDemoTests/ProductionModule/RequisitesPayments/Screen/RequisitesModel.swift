@@ -11,6 +11,7 @@ import RxSwift
 
 protocol RequisitesModelProtocol {
     func searchItems(_ case: SearchQuery) -> Single<[Item]>
+    func didSelect(_ item: Item)
 }
 
 class RequisitesModel: RequisitesModelProtocol {

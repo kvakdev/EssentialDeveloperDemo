@@ -67,6 +67,14 @@ class RequisiteCellTests: XCTestCase {
         XCTAssertEqual(sut.cellTitleLabel.text, vmSpy.title)
     }
     
+    func test_modelTextChanges_triggersCellLabelTextChange() {
+        let model = RequisisteCellModelSpy()
+        let vm = RequisitesCellViewModel(model)
+        let (sut, viewModel) = makeSUT(vm)
+        
+        XCTAssertEqual(sut.inputTextField.text, model.text.value)
+    }
+    
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {
         let model = RequisisteCellModelSpy()
         let viewModel = RequisitesCellViewModel(model)

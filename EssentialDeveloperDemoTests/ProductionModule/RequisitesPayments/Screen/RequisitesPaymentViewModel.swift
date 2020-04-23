@@ -9,12 +9,6 @@
 import Foundation
 import RxSwift
 
-
-enum SearchQuery {
-    case iban(String)
-    case taxNumber(String)
-}
-
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
     var dataSource: RequisitesTableDataSourceProtocol { get }
 }
@@ -94,13 +88,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
     
     private func handleSelection(_ item: Item) {
-        print("selected \(item)")
-        let ibanViewModel = _dataSource.getCellViewModel(type: .iban)
-        let taxNumberViewModel = _dataSource.getCellViewModel(type: .taxNumber)
-        
-        ibanViewModel?.text.accept(item.iban ?? "")
-        taxNumberViewModel?.text.accept(item.taxNumber ?? "")
-        
+        model.didSelect(item)
         self._dataSource.mode = .all
         self.events.onNext(.reloadTableView)
     }
@@ -110,7 +98,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
 }
 
-extension Item {
+private extension Item {
     func toCellViewModel() -> RequisitesCellViewModel {
         let model = RequisitesCellModel(.search, validator: nil)
         model.text.accept("\(self.title ?? "")")
