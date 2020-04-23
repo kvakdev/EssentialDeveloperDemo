@@ -82,15 +82,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8DB6624F-C399-4F63-A3E9-0466B81C0F43"
+            uuid = "0BA6114E-F7FA-4DB0-82E4-030570E60911"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/RequisitesPaymentTests/SpyClasses/RequisitesModelSpy.swift"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/Screen/RequisitesModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "searchItems(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,16 +98,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5D108A0A-5BC0-4499-BC15-14E4B71CBF93"
+            uuid = "FC1EC03D-0E0D-4BDE-B5D4-8A520E35F823"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EssentialDeveloperDemoTests/RequisitesPaymentTests/RequisitesViewModelTests.swift"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/Screen/RequisitesModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "test_textChangedCallbackOnSearchableItems_callsSearchOnModel()"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "searchItems(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84A219DB-8BF8-42AE-AD5A-2EB7EC0D4E69"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/Screen/RequisitesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "searchTaxNumber(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22B1B658-5A67-4C24-9AA6-005AF59CAC7A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EssentialDeveloperDemoTests/ProductionModule/RequisitesPayments/Screen/RequisitesModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "searchIban(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

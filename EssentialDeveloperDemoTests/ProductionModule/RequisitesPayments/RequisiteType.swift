@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum RequisiteType {
-    case iban
+enum RequisiteType: Int {
+    case iban = 0
     case taxNumber
     case text
     case search

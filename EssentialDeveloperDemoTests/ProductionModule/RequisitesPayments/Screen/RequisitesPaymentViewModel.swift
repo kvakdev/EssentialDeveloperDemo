@@ -36,9 +36,12 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     
     func handleCallback(_ type: RequisiteType) {
         switch type {
-        case .iban, .taxNumber:
+        case .iban:
             _dataSource.mode = .search(type)
             self.events.onNext(.reloadSections([1, 2]))
+        case .taxNumber:
+            _dataSource.mode = .search(type)
+            self.events.onNext(.reloadSections([0, 2]))
         case .text:
             _dataSource.mode = .all
         case .search:
@@ -84,7 +87,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         }
         
         _dataSource.setSearchSection(cellViewModels)
-        events.onNext(.reloadSections([1, 2]))
+        events.onNext(.reloadSections(_dataSource.sectionToReload()))
     }
     
     private func handleSelection(_ item: Item) {

@@ -55,4 +55,15 @@ class RequisitesTableDataSource: BaseViewModel, RequisitesTableDataSourceProtoco
         guard let searchSection = section else { return }
         searchSection.set(viewModels)
     }
+    
+    func sectionToReload() -> [Int] {
+        let allSections = Array(0..<sections.count)
+        
+        switch self.mode {
+        case .search(let type):
+            return allSections.filter { $0 != type.rawValue }
+        case .all:
+            return allSections
+        }
+    }
 }
