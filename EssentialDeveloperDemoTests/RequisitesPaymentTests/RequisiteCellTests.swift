@@ -71,6 +71,7 @@ class RequisiteCellTests: XCTestCase {
         let model = RequisisteCellModelSpy()
         let vm = RequisitesCellViewModel(model)
         let (sut, viewModel) = makeSUT(vm)
+        model.text.accept("test")
         
         XCTAssertEqual(sut.inputTextField.text, model.text.value)
     }
