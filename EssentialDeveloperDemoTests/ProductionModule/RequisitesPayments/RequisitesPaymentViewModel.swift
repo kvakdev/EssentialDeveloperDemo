@@ -35,40 +35,6 @@ enum SearchQuery {
     case taxNumber(String)
 }
 
-protocol RequisitesModelProtocol {
-    func searchItems(_ case: SearchQuery) -> Single<[Item]>
-}
-
-class RequisitesModel: RequisitesModelProtocol {
-    let ibanModel = IbanCellModel(validator: Validator())
-    
-    func setIBAN(_ iban: String) {
-        ibanModel.text.accept(iban)
-    }
-    
-    func searchItems(_ query: SearchQuery) -> Single<[Item]> {
-        switch query {
-        case .iban(let text):
-            return searchIban(text)
-        case .taxNumber(let text):
-            return searchTaxNumber(text)
-        }
-    }
-    
-    private func searchTaxNumber(_ text: String) -> Single<[Item]> {
-        return .just(itemsWith("Tax Payer Number: "))
-    }
-
-    
-    private func searchIban(_ text: String) -> Single<[Item]> {
-        return .just(itemsWith("IBAN: "))
-    }
-    
-    private func itemsWith(_ titlePrefix: String) -> [Item] {
-         return (0...10).map { _ in Item.random(titlePrefix) }
-    }
-}
-
 protocol RequisitesPaymentViewModelProtocol: ViewModelProtocol {
     var dataSource: RequisitesTableDataSourceProtocol { get }
 }

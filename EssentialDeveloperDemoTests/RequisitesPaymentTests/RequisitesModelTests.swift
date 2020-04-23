@@ -10,10 +10,13 @@ import XCTest
 
 class RequisitesModelTests: XCTestCase {
 
-    func test_sutMakesModel_whenValueIsSet() {
+    func test_sutSetsCorrectValues_afterItemSelected() {
         let sut = makeSUT()
-        sut.setIBAN("123")
-        XCTAssertEqual(sut.ibanModel.text.value, "123")
+        let item = Item(id: 1, iban: "1", taxNumber: "20", title: "title1")
+        sut.didSelect(item)
+        
+        XCTAssertEqual(sut.ibanModel.text.value, "1")
+        XCTAssertEqual(sut.taxNumberModel.text.value, "20")
     }
     
     func makeSUT() -> RequisitesModel {
