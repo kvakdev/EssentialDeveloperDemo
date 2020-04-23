@@ -49,6 +49,9 @@
 		93700F7C244DFC980008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
 		93700F7E244DFEC30008AC20 /* RequisiteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93700F7D244DFEC30008AC20 /* RequisiteCell.xib */; };
 		93700F7F244E01210008AC20 /* RequisiteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93700F7D244DFEC30008AC20 /* RequisiteCell.xib */; };
+		93888C3C24520F7700C797D2 /* RequisitesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */; };
+		93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
+		93888C3F2452138500C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -98,6 +101,8 @@
 		93700F75244DF8FE0008AC20 /* RequisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCell.swift; sourceTree = "<group>"; };
 		93700F7A244DFC590008AC20 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		93700F7D244DFEC30008AC20 /* RequisiteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequisiteCell.xib; sourceTree = "<group>"; };
+		93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesModelTests.swift; sourceTree = "<group>"; };
+		93888C3D2452135A00C797D2 /* IbanCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanCellModel.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +176,7 @@
 				93700F7D244DFEC30008AC20 /* RequisiteCell.xib */,
 				93700F4A2448E4120008AC20 /* RequisitesCellViewModel.swift */,
 				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
+				93888C3D2452135A00C797D2 /* IbanCellModel.swift */,
 				93700F7A244DFC590008AC20 /* Validator.swift */,
 				93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */,
 				93700F4E2448E4630008AC20 /* RequisitesSectionViewModel.swift */,
@@ -208,6 +214,7 @@
 				93700F462446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift */,
 				93700F6D244B3D360008AC20 /* RequisiteCellTests.swift */,
 				93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */,
+				93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */,
 			);
 			path = RequisitesPaymentTests;
 			sourceTree = "<group>";
@@ -482,6 +489,7 @@
 				93700F562448E51F0008AC20 /* RequisitesSectionViewModel.swift in Sources */,
 				931A440C24441D9500017466 /* BaseVC.swift in Sources */,
 				939D64442441F98200F634E3 /* AppDelegate.swift in Sources */,
+				93888C3F2452138500C797D2 /* IbanCellModel.swift in Sources */,
 				93700F572448E5210008AC20 /* RequisitesCellModel.swift in Sources */,
 				93700F552448E51A0008AC20 /* RequisitesTableDataSourceProtocol.swift in Sources */,
 				93700F68244AEE090008AC20 /* RequisitesCellModelProtocol.swift in Sources */,
@@ -509,6 +517,7 @@
 				93700F6E244B3D360008AC20 /* RequisiteCellTests.swift in Sources */,
 				93700F472446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift in Sources */,
 				93700F4D2448E4380008AC20 /* RequisitesCellModel.swift in Sources */,
+				93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */,
 				93700F5E2448E5AA0008AC20 /* RequisitesTableDataSource.swift in Sources */,
 				93700F67244AEDA60008AC20 /* RequisitesCellModelProtocol.swift in Sources */,
 				93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */,
@@ -519,6 +528,7 @@
 				931A441424441F3700017466 /* BaseVC.swift in Sources */,
 				93700F6A244B3BB10008AC20 /* RequisisteCellModelSpy.swift in Sources */,
 				93700F492446CA950008AC20 /* RequisitesViewModelTests.swift in Sources */,
+				93888C3C24520F7700C797D2 /* RequisitesModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

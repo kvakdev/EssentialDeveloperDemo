@@ -13,7 +13,7 @@ class RequisitesModelSpy: RequisitesModelProtocol {
     private var observers = [AnyObserver<[Item]>]()
     var callCount = 0
     
-    func searchItems(_ iban: String, taxNumber: String) -> Single<[Item]> {
+    func searchItems(_ case: SearchQuery) -> Single<[Item]> {
         callCount += 1
         
         return Observable.create { observer -> Disposable in

@@ -31,7 +31,7 @@ class RequisitesViewModelTests: XCTestCase {
         case .all:
             XCTFail("searchMode expected got \(mode) instead")
         }
-    }
+    }    
     
     func test_searchModeChange_sendsCorrectReloadTableSectionEvent() {
         let dataSource = RequisitesTableDataSource()

@@ -22,23 +22,50 @@ class Item {
         self.title = title
     }
     
-    static func random() -> Item {
+    static func random(_ titlePrefix: String) -> Item {
         let iban = Int.random(in: 100000000...200000000)
         let taxNumber = Int.random(in: 100000000...200000000)
         let title = Int.random(in: 100000000...200000000)
-        return Item(id: Int.random(in: 0...1000), iban: "\(iban)", taxNumber: "\(taxNumber)", title: "Some title \(title)")
+        return Item(id: Int.random(in: 0...1000), iban: "\(iban)", taxNumber: "\(taxNumber)", title: "\(titlePrefix) \(title)")
     }
 }
 
+enum SearchQuery {
+    case iban(String)
+    case taxNumber(String)
+}
+
 protocol RequisitesModelProtocol {
-    func searchItems(_ iban: String, taxNumber: String) -> Single<[Item]>
+    func searchItems(_ case: SearchQuery) -> Single<[Item]>
 }
 
 class RequisitesModel: RequisitesModelProtocol {
-    func searchItems(_ iban: String, taxNumber: String) -> Single<[Item]> {
-        let randomItems = (0...10).map { _ in Item.random() }
-        
-        return .just(randomItems)
+    let ibanModel = IbanCellModel(validator: Validator())
+    
+    func setIBAN(_ iban: String) {
+        ibanModel.text.accept(iban)
+    }
+    
+    func searchItems(_ query: SearchQuery) -> Single<[Item]> {
+        switch query {
+        case .iban(let text):
+            return searchIban(text)
+        case .taxNumber(let text):
+            return searchTaxNumber(text)
+        }
+    }
+    
+    private func searchTaxNumber(_ text: String) -> Single<[Item]> {
+        return .just(itemsWith("Tax Payer Number: "))
+    }
+
+    
+    private func searchIban(_ text: String) -> Single<[Item]> {
+        return .just(itemsWith("IBAN: "))
+    }
+    
+    private func itemsWith(_ titlePrefix: String) -> [Item] {
+         return (0...10).map { _ in Item.random(titlePrefix) }
     }
 }
 
@@ -85,28 +112,49 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         ibanViewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
             self?.searchForIban(value)
         }).disposed(by: _disposeBag)
+        
+        let taxNumberViewModel = dataSource.getCellViewModel(type: .taxNumber)
+        
+        taxNumberViewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
+            self?.searchForTaxNo(value)
+        }).disposed(by: _disposeBag)
     }
     
     private func searchForIban(_ text: String) {
-        model.searchItems(text, taxNumber: "").subscribe(onSuccess: { [weak self] items in
-            let cellViewModels = items.compactMap { item -> RequisitesCellViewModel in
-                let viewModel = item.toCellViewModel()
-                viewModel.setCallback { [weak self] _ in
-                    self?.handleSelection(item)
-                }
-                return viewModel
-            }
-            
-            self?._dataSource.setSearchSection(cellViewModels)
-            self?.events.onNext(.reloadSections([1, 2]))
+        model.searchItems(.iban(text)).subscribe(onSuccess: { [weak self] items in
+            self?.handleSearchItems(items)
         }, onError: { [weak self] in self?.showError($0) })
         .disposed(by: _disposeBag)
     }
     
+    private func searchForTaxNo(_ text: String) {
+        model.searchItems(.taxNumber(text)).subscribe(onSuccess: { [weak self] items in
+            self?.handleSearchItems(items)
+        }, onError: { [weak self] in self?.showError($0) })
+        .disposed(by: _disposeBag)
+    }
+    
+    private func handleSearchItems(_ items: [Item]) {
+        let cellViewModels = items.compactMap { item -> RequisitesCellViewModel in
+            let viewModel = item.toCellViewModel()
+            viewModel.setCallback { [weak self] _ in
+                self?.handleSelection(item)
+            }
+            return viewModel
+        }
+        
+        _dataSource.setSearchSection(cellViewModels)
+        events.onNext(.reloadSections([1, 2]))
+    }
+    
     private func handleSelection(_ item: Item) {
         print("selected \(item)")
-        let viewModel = _dataSource.getCellViewModel(type: .iban)
-        viewModel?.text.accept(item.iban ?? "")
+        let ibanViewModel = _dataSource.getCellViewModel(type: .iban)
+        let taxNumberViewModel = _dataSource.getCellViewModel(type: .taxNumber)
+        
+        ibanViewModel?.text.accept(item.iban ?? "")
+        taxNumberViewModel?.text.accept(item.taxNumber ?? "")
+        
         self._dataSource.mode = .all
         self.events.onNext(.reloadTableView)
     }
