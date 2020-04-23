@@ -19,7 +19,6 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
     
     fileprivate func setupSubviews() {
         tableView.frame = self.view.bounds
-        tableView.rowHeight = 122
         
         view.addSubview(tableView)
         
@@ -72,7 +71,7 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
         case .search:
             return 44
         default:
-            return 100
+            return 122
         }
     }
     

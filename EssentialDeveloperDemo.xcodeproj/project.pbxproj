@@ -56,6 +56,8 @@
 		93888C42245215BD00C797D2 /* TaxNumberCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C402452155E00C797D2 /* TaxNumberCellModel.swift */; };
 		93888C44245215DC00C797D2 /* RequisitesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C43245215DC00C797D2 /* RequisitesModel.swift */; };
 		93888C45245215F000C797D2 /* RequisitesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C43245215DC00C797D2 /* RequisitesModel.swift */; };
+		93888C4A245218DC00C797D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C49245218DC00C797D2 /* Item.swift */; };
+		93888C4B245218DC00C797D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C49245218DC00C797D2 /* Item.swift */; };
 		939D64442441F98200F634E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64432441F98200F634E3 /* AppDelegate.swift */; };
 		939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939D64472441F98200F634E3 /* RequisitesViewController.swift */; };
 		939D644D2441F98400F634E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 939D644C2441F98400F634E3 /* Assets.xcassets */; };
@@ -109,6 +111,7 @@
 		93888C3D2452135A00C797D2 /* IbanCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanCellModel.swift; sourceTree = "<group>"; };
 		93888C402452155E00C797D2 /* TaxNumberCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxNumberCellModel.swift; sourceTree = "<group>"; };
 		93888C43245215DC00C797D2 /* RequisitesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesModel.swift; sourceTree = "<group>"; };
+		93888C49245218DC00C797D2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		939D64402441F98200F634E3 /* EssentialDeveloperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialDeveloperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939D64432441F98200F634E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		939D64472441F98200F634E3 /* RequisitesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesViewController.swift; sourceTree = "<group>"; };
@@ -176,17 +179,10 @@
 		931A44152444227D00017466 /* RequisitesPayments */ = {
 			isa = PBXGroup;
 			children = (
-				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
-				93888C43245215DC00C797D2 /* RequisitesModel.swift */,
-				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
-				93700F75244DF8FE0008AC20 /* RequisiteCell.swift */,
-				93700F7D244DFEC30008AC20 /* RequisiteCell.xib */,
-				93700F4A2448E4120008AC20 /* RequisitesCellViewModel.swift */,
-				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
-				93888C3D2452135A00C797D2 /* IbanCellModel.swift */,
-				93888C402452155E00C797D2 /* TaxNumberCellModel.swift */,
+				93888C48245218D200C797D2 /* Data */,
+				93888C46245216DD00C797D2 /* Screen */,
+				93888C472452170100C797D2 /* Cell */,
 				93700F7A244DFC590008AC20 /* Validator.swift */,
-				93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */,
 				93700F4E2448E4630008AC20 /* RequisitesSectionViewModel.swift */,
 				93700F532448E4D20008AC20 /* RequisitesTableDataSourceProtocol.swift */,
 				93700F5D2448E5AA0008AC20 /* RequisitesTableDataSource.swift */,
@@ -236,6 +232,38 @@
 				93700F6F244DD1B60008AC20 /* RequisitesModelSpy.swift */,
 			);
 			path = SpyClasses;
+			sourceTree = "<group>";
+		};
+		93888C46245216DD00C797D2 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				931A4417244422BF00017466 /* RequisitesPaymentViewModel.swift */,
+				93888C43245215DC00C797D2 /* RequisitesModel.swift */,
+				939D64472441F98200F634E3 /* RequisitesViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		93888C472452170100C797D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93700F75244DF8FE0008AC20 /* RequisiteCell.swift */,
+				93700F7D244DFEC30008AC20 /* RequisiteCell.xib */,
+				93700F4A2448E4120008AC20 /* RequisitesCellViewModel.swift */,
+				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
+				93888C3D2452135A00C797D2 /* IbanCellModel.swift */,
+				93888C402452155E00C797D2 /* TaxNumberCellModel.swift */,
+				93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		93888C48245218D200C797D2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				93888C49245218DC00C797D2 /* Item.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		939D64372441F98200F634E3 = {
@@ -484,6 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93888C4A245218DC00C797D2 /* Item.swift in Sources */,
 				93888C45245215F000C797D2 /* RequisitesModel.swift in Sources */,
 				93700F7C244DFC980008AC20 /* Validator.swift in Sources */,
 				93700F582448E5250008AC20 /* RequisitesCellViewModel.swift in Sources */,
@@ -530,6 +559,7 @@
 				93700F4D2448E4380008AC20 /* RequisitesCellModel.swift in Sources */,
 				93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */,
 				93700F5E2448E5AA0008AC20 /* RequisitesTableDataSource.swift in Sources */,
+				93888C4B245218DC00C797D2 /* Item.swift in Sources */,
 				93700F67244AEDA60008AC20 /* RequisitesCellModelProtocol.swift in Sources */,
 				93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */,
 				931A441124441EB900017466 /* RequisitesViewController.swift in Sources */,
