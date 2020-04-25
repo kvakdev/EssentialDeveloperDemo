@@ -16,7 +16,8 @@ public class RequisiteCell: UITableViewCell {
     let button = UIButton()
     
     private var vm: RequisitesCellViewModelProtocol?
-    private var _disposeBag = DisposeBag()
+    private var _viewModelBag = DisposeBag()
+    private let _uiDisposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,7 +34,7 @@ public class RequisiteCell: UITableViewCell {
     public override func prepareForReuse() {
         super.prepareForReuse()
         
-        _disposeBag = DisposeBag()
+        _viewModelBag = DisposeBag()
     }
     
     func setup() {
@@ -84,7 +85,7 @@ public class RequisiteCell: UITableViewCell {
             .withLatestFrom(inputTextField.rx.text)
             .subscribe(onNext: { [weak self] value in
                 self?.handle(value ?? "")
-        }).disposed(by: _disposeBag)
+        }).disposed(by: _uiDisposeBag)
         
         self.button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
     }
@@ -94,21 +95,36 @@ public class RequisiteCell: UITableViewCell {
         
         vm.text.subscribe(onNext: { [weak self] text in
             self?.inputTextField.text = text
-        }).disposed(by: _disposeBag)
+        }).disposed(by: _viewModelBag)
         
         vm.errorText.subscribe(onNext: { [weak self] errorMessage in
             self?.errorLabel.text = errorMessage
-        }).disposed(by: _disposeBag)
+        }).disposed(by: _viewModelBag)
+        
+        vm.isKeyboardEnabled.subscribe(onNext: { [weak self] enabled in
+            if enabled {
+                self?.inputTextField.becomeFirstResponder()
+            } else {
+                self?.inputTextField.resignFirstResponder()
+            }
+        })
         
         cellTitleLabel.text = vm.title
     }
     
     @objc func handleTap() {
-        inputTextField.becomeFirstResponder()
         self.vm?.handleTapAction()
     }
     
     @objc func handle(_ text: String) {
         self.vm?.didChangeText(text)
+    }
+}
+
+extension RequisiteCell: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.vm?.handleReturnTap()
+        
+        return true
     }
 }

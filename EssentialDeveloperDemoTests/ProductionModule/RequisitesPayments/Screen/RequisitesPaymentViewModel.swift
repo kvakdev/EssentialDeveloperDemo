@@ -24,6 +24,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     let model: RequisitesModelProtocol
     
     private let _disposeBag = DisposeBag()
+    private var _searchDisposeBag = DisposeBag()
     
     init(_ dataSource: RequisitesTableDataSource, model: RequisitesModelProtocol?) {
         self._dataSource = dataSource
@@ -56,10 +57,18 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
             self?.searchForIban(value)
         }).disposed(by: _disposeBag)
         
+        ibanViewModel?.isKeyboardEnabled.filter { !$0 }.subscribe(onNext: { [weak self] _ in
+            self?.resetMode()
+        }).disposed(by: _disposeBag)
+        
         let taxNumberViewModel = dataSource.getCellViewModel(type: .taxNumber)
         
         taxNumberViewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
             self?.searchForTaxNo(value)
+        }).disposed(by: _disposeBag)
+        
+        taxNumberViewModel?.isKeyboardEnabled.filter { !$0 }.subscribe(onNext: { [weak self] _ in
+            self?.resetMode()
         }).disposed(by: _disposeBag)
     }
     
@@ -67,14 +76,14 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         model.searchItems(.iban(text)).subscribe(onSuccess: { [weak self] items in
             self?.handleSearchItems(items)
         }, onError: { [weak self] in self?.showError($0) })
-        .disposed(by: _disposeBag)
+        .disposed(by: _searchDisposeBag)
     }
     
     private func searchForTaxNo(_ text: String) {
         model.searchItems(.taxNumber(text)).subscribe(onSuccess: { [weak self] items in
             self?.handleSearchItems(items)
         }, onError: { [weak self] in self?.showError($0) })
-        .disposed(by: _disposeBag)
+        .disposed(by: _searchDisposeBag)
     }
     
     private func handleSearchItems(_ items: [Item]) {
@@ -85,15 +94,20 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
             }
             return viewModel
         }
-        
+        _searchDisposeBag = .init()
         _dataSource.setSearchSection(cellViewModels)
         events.onNext(.reloadSections(_dataSource.sectionToReload()))
     }
     
-    private func handleSelection(_ item: Item) {
-        model.didSelect(item)
+    private func resetMode() {
+        self._dataSource.setSearchSection([])
         self._dataSource.mode = .all
         self.events.onNext(.reloadTableView)
+    }
+    
+    private func handleSelection(_ item: Item) {
+        model.didSelect(item)
+        resetMode()
     }
     
     private func showError(_ error: Error) {

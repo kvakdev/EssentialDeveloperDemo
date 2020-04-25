@@ -12,6 +12,10 @@ import RxSwift
 import RxCocoa
 
 class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
+    let isKeyboardEnabled: PublishSubject<Bool> = .init()
+    
+    func handleReturnTap() {}
+    
     var title: String = ""
     var autoCompleteText: PublishSubject<String> = .init()
     var text: BehaviorRelay<String> = .init(value: "")
@@ -74,6 +78,14 @@ class RequisiteCellTests: XCTestCase {
         model.text.accept("test")
         
         XCTAssertEqual(sut.inputTextField.text, model.text.value)
+    }
+    
+    func test_textFieldEndsEditing_onViewModelKeyboardEnabled() {
+        let (sut, vm) = makeSUT()
+        vm.isKeyboardEnabled.onNext(false)
+        XCTAssertFalse(sut.inputTextField.isEditing)
+        vm.isKeyboardEnabled.onNext(true)
+        XCTAssertTrue(sut.inputTextField.isEditing)
     }
     
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {

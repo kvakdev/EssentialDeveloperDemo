@@ -15,9 +15,11 @@ protocol RequisitesCellViewModelProtocol {
     var text: BehaviorRelay<String> { get }
     var autoCompleteText: PublishSubject<String> { get }
     var errorText: PublishSubject<String?> { get }
+    var isKeyboardEnabled: PublishSubject<Bool> { get }
     
     func didChangeText(_ text: String)
     func handleTapAction()
+    func handleReturnTap()
 }
 
 class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
@@ -25,6 +27,7 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     let text: BehaviorRelay<String> = .init(value: "")
     var autoCompleteText: PublishSubject<String> = .init()
     let errorText: PublishSubject<String?> = .init()
+    let isKeyboardEnabled: PublishSubject<Bool> = .init()
     
     private let model: RequisitesCellModelProtocol
     private var callback: ((RequisiteType) -> Void)?
@@ -51,7 +54,12 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
         }
     }
     
+    func handleReturnTap() {
+        self.isKeyboardEnabled.onNext(false)
+    }
+    
     func handleTapAction() {
+        self.isKeyboardEnabled.onNext(true)
         callback?(model.type)
     }
     

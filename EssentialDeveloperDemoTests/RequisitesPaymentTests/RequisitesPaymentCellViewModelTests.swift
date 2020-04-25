@@ -49,6 +49,14 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         sut.didChangeText("<some value>")
         XCTAssertEqual(resultBag.values, [messsage])
     }
+    
+    func test_didEndEditingCalled_afterKeyboardDismissal() {
+        let sut = makeSUT()
+        let resultBag = ResultBag(sut.isKeyboardEnabled)
+        sut.handleReturnTap()
+        
+        XCTAssertEqual(resultBag.values, [false])
+    }
     ///doesn't work for some reason would be great if we could figure it out
 //    func test_sutCallsFinalValidation_onPreset() {
 //        let model = RequisisteCellModelSpy()
