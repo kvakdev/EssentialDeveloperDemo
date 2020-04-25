@@ -51,25 +51,28 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
     
     private func setupObservers() {
-        let ibanViewModel = dataSource.getCellViewModel(type: .iban)
-        
-        ibanViewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
-            self?.searchForIban(value)
-        }).disposed(by: _disposeBag)
-        
-        ibanViewModel?.isKeyboardEnabled.filter { !$0 }.subscribe(onNext: { [weak self] _ in
-            self?.resetMode()
-        }).disposed(by: _disposeBag)
-        
-        let taxNumberViewModel = dataSource.getCellViewModel(type: .taxNumber)
-        
-        taxNumberViewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
-            self?.searchForTaxNo(value)
-        }).disposed(by: _disposeBag)
-        
-        taxNumberViewModel?.isKeyboardEnabled.filter { !$0 }.subscribe(onNext: { [weak self] _ in
-            self?.resetMode()
-        }).disposed(by: _disposeBag)
+        let types: [RequisiteType] = [.iban, .taxNumber]
+        types.forEach { type in
+            let viewModel = dataSource.getCellViewModel(type: type)
+            
+            viewModel?.autoCompleteText.subscribe(onNext: { [weak self] value in
+                self?.searchForType(type: type, text: value)
+            }).disposed(by: _disposeBag)
+            
+            viewModel?.isKeyboardEnabled.filter { !$0 }.subscribe(onNext: { [weak self] _ in
+                self?.resetMode()
+            }).disposed(by: _disposeBag)
+        }
+    }
+    
+    private func searchForType(type: RequisiteType, text: String) {
+        switch type {
+        case .iban:
+            searchForIban(text)
+        case .taxNumber:
+            searchForTaxNo(text)
+        default: break
+        }
     }
     
     private func searchForIban(_ text: String) {
