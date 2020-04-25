@@ -74,12 +74,12 @@ class RequisiteCellTests: XCTestCase {
     func test_modelTextChanges_triggersCellLabelTextChange() {
         let model = RequisisteCellModelSpy()
         let vm = RequisitesCellViewModel(model)
-        let (sut, viewModel) = makeSUT(vm)
+        let (sut, _) = makeSUT(vm)
         model.text.accept("test")
         
         XCTAssertEqual(sut.inputTextField.text, model.text.value)
     }
-    
+    ///Wrong test #2
     func test_textFieldEndsEditing_onViewModelKeyboardEnabled() {
         let (sut, vm) = makeSUT()
         vm.isKeyboardEnabled.onNext(false)
