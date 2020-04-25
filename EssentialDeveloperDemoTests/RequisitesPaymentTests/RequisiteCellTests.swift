@@ -11,27 +11,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
-    let isKeyboardEnabled: PublishSubject<Bool> = .init()
-    
-    func handleReturnTap() {}
-    
-    var title: String = ""
-    var autoCompleteText: PublishSubject<String> = .init()
-    var text: BehaviorRelay<String> = .init(value: "")
-    var errorText: PublishSubject<String?> = .init()
-    
-    var didCallTextChanged: ((String) -> Void)?
-    
-    func didChangeText(_ text: String) {
-        didCallTextChanged?(text)
-    }
-    
-    func handleTapAction() {
-        
-    }
-}
-
 class RequisiteCellTests: XCTestCase {
 
     func test_sutChangesTextFieldValue_onViewModelChange() {

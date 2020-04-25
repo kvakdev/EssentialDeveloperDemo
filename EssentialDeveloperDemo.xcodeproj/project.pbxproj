@@ -47,6 +47,8 @@
 		93700F77244DF9050008AC20 /* RequisiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F75244DF8FE0008AC20 /* RequisiteCell.swift */; };
 		93700F7B244DFC590008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
 		93700F7C244DFC980008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
+		9372CA9A24549013001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */; };
+		9372CA9B24549032001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */; };
 		93888C3C24520F7700C797D2 /* RequisitesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */; };
 		93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
 		93888C3F2452138500C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
@@ -107,6 +109,7 @@
 		93700F73244DF1080008AC20 /* RequisitePaymentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitePaymentViewControllerTests.swift; sourceTree = "<group>"; };
 		93700F75244DF8FE0008AC20 /* RequisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCell.swift; sourceTree = "<group>"; };
 		93700F7A244DFC590008AC20 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesCellViewModelSpy.swift; sourceTree = "<group>"; };
 		93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesModelTests.swift; sourceTree = "<group>"; };
 		93888C3D2452135A00C797D2 /* IbanCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanCellModel.swift; sourceTree = "<group>"; };
 		93888C402452155E00C797D2 /* TaxNumberCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxNumberCellModel.swift; sourceTree = "<group>"; };
@@ -233,6 +236,7 @@
 				93700F69244B3BB10008AC20 /* RequisisteCellModelSpy.swift */,
 				93700F622448E65F0008AC20 /* FailingValidator.swift */,
 				93700F6F244DD1B60008AC20 /* RequisitesModelSpy.swift */,
+				9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */,
 			);
 			path = SpyClasses;
 			sourceTree = "<group>";
@@ -513,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9372CA9B24549032001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */,
 				93888C4A245218DC00C797D2 /* Item.swift in Sources */,
 				93888C45245215F000C797D2 /* RequisitesModel.swift in Sources */,
 				93700F7C244DFC980008AC20 /* Validator.swift in Sources */,
@@ -563,6 +568,7 @@
 				93700F5E2448E5AA0008AC20 /* RequisitesTableDataSource.swift in Sources */,
 				93888C4B245218DC00C797D2 /* Item.swift in Sources */,
 				93700F67244AEDA60008AC20 /* RequisitesCellModelProtocol.swift in Sources */,
+				9372CA9A24549013001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */,
 				93700F632448E65F0008AC20 /* FailingValidator.swift in Sources */,
 				931A441124441EB900017466 /* RequisitesViewController.swift in Sources */,
 				931A441024441E5200017466 /* ViewModelProtocol.swift in Sources */,
