@@ -103,6 +103,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
     }
     
     private func resetMode() {
+        self._searchDisposeBag = .init()
         self._dataSource.setSearchSection([])
         self._dataSource.mode = .all
         self.events.onNext(.reloadTableView)
