@@ -17,10 +17,13 @@ protocol RequisitesModelProtocol {
 class RequisitesModel: RequisitesModelProtocol {
     let ibanModel = IbanCellModel(validator: Validator())
     let taxNumberModel = TaxNumberCellModel(validator: Validator())
+    let commentModel = TextCellModel(validator: Validator(), title: "Comment")
+    let bankNameModel = TextCellModel(validator: Validator(), title: "Bank name")
     
     func didSelect(_ item: Item) {
         if let iban = item.iban {
             ibanModel.text.accept(iban)
+            tryGetBankName(iban)
         }
         if let taxNumber = item.taxNumber {
             taxNumberModel.text.accept(taxNumber)
@@ -34,6 +37,19 @@ class RequisitesModel: RequisitesModelProtocol {
         case .taxNumber(let text):
             return searchTaxNumber(text)
         }
+    }
+    
+    private func tryGetBankName(_ iban: String) {
+        
+    }
+    
+    private func getBankName(_ iban: String) -> Single<String?> {
+        return Observable.create { observer -> Disposable in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                observer.onNext("Big Bank Name")
+            }
+            return Disposables.create()
+        }.asSingle()
     }
     
     private func searchTaxNumber(_ text: String) -> Single<[Item]> {

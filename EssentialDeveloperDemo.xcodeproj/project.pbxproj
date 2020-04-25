@@ -49,6 +49,8 @@
 		93700F7C244DFC980008AC20 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93700F7A244DFC590008AC20 /* Validator.swift */; };
 		9372CA9A24549013001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */; };
 		9372CA9B24549032001D8C55 /* RequisitesCellViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */; };
+		9372CA9D245494AC001D8C55 /* TextCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9C245494AC001D8C55 /* TextCellModel.swift */; };
+		9372CA9E245494AC001D8C55 /* TextCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9372CA9C245494AC001D8C55 /* TextCellModel.swift */; };
 		93888C3C24520F7700C797D2 /* RequisitesModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */; };
 		93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
 		93888C3F2452138500C797D2 /* IbanCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93888C3D2452135A00C797D2 /* IbanCellModel.swift */; };
@@ -110,6 +112,8 @@
 		93700F75244DF8FE0008AC20 /* RequisiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisiteCell.swift; sourceTree = "<group>"; };
 		93700F7A244DFC590008AC20 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		9372CA9924549013001D8C55 /* RequisitesCellViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesCellViewModelSpy.swift; sourceTree = "<group>"; };
+		9372CA9C245494AC001D8C55 /* TextCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCellModel.swift; sourceTree = "<group>"; };
+		9372CA9F245498D7001D8C55 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93888C3B24520F7700C797D2 /* RequisitesModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisitesModelTests.swift; sourceTree = "<group>"; };
 		93888C3D2452135A00C797D2 /* IbanCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IbanCellModel.swift; sourceTree = "<group>"; };
 		93888C402452155E00C797D2 /* TaxNumberCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxNumberCellModel.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				93700F4C2448E4380008AC20 /* RequisitesCellModel.swift */,
 				93888C3D2452135A00C797D2 /* IbanCellModel.swift */,
 				93888C402452155E00C797D2 /* TaxNumberCellModel.swift */,
+				9372CA9C245494AC001D8C55 /* TextCellModel.swift */,
 				93700F66244AEDA60008AC20 /* RequisitesCellModelProtocol.swift */,
 			);
 			path = Cell;
@@ -276,6 +281,7 @@
 		939D64372441F98200F634E3 = {
 			isa = PBXGroup;
 			children = (
+				9372CA9F245498D7001D8C55 /* README.md */,
 				939D64422441F98200F634E3 /* EssentialDeveloperDemo */,
 				939D64592441F98400F634E3 /* EssentialDeveloperDemoTests */,
 				939D64412441F98200F634E3 /* Products */,
@@ -526,6 +532,7 @@
 				93700F77244DF9050008AC20 /* RequisiteCell.swift in Sources */,
 				93700F602448E5D80008AC20 /* ValidatorProtocol.swift in Sources */,
 				939D64482441F98200F634E3 /* RequisitesViewController.swift in Sources */,
+				9372CA9D245494AC001D8C55 /* TextCellModel.swift in Sources */,
 				931A441324441F3400017466 /* ViewModelProtocol.swift in Sources */,
 				931A4419244422D000017466 /* RequisitesPaymentViewModel.swift in Sources */,
 				93700F612448E5DE0008AC20 /* RequisitesTableDataSource.swift in Sources */,
@@ -562,6 +569,7 @@
 				93700F76244DF8FE0008AC20 /* RequisiteCell.swift in Sources */,
 				931A441F24443F4A00017466 /* BaseViewModelSpy.swift in Sources */,
 				93700F6E244B3D360008AC20 /* RequisiteCellTests.swift in Sources */,
+				9372CA9E245494AC001D8C55 /* TextCellModel.swift in Sources */,
 				93700F472446C56F0008AC20 /* RequisitesPaymentCellViewModelTests.swift in Sources */,
 				93700F4D2448E4380008AC20 /* RequisitesCellModel.swift in Sources */,
 				93888C3E2452135A00C797D2 /* IbanCellModel.swift in Sources */,

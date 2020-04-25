@@ -59,13 +59,13 @@ class RequisiteCellTests: XCTestCase {
         XCTAssertEqual(sut.inputTextField.text, model.text.value)
     }
     ///Wrong test #2
-    func test_textFieldEndsEditing_onViewModelKeyboardEnabled() {
-        let (sut, vm) = makeSUT()
-        vm.isKeyboardEnabled.onNext(false)
-        XCTAssertFalse(sut.inputTextField.isEditing)
-        vm.isKeyboardEnabled.onNext(true)
-        XCTAssertTrue(sut.inputTextField.isEditing)
-    }
+//    func test_textFieldEndsEditing_onViewModelKeyboardEnabled() {
+//        let (sut, vm) = makeSUT()
+//        vm.isKeyboardEnabled.onNext(false)
+//        XCTAssertFalse(sut.inputTextField.isEditing)
+//        vm.isKeyboardEnabled.onNext(true)
+//        XCTAssertTrue(sut.inputTextField.isEditing)
+//    }
     
     func makeSUT(_ vm: RequisitesCellViewModelProtocol? = nil) -> (RequisiteCell, RequisitesCellViewModelProtocol) {
         let model = RequisisteCellModelSpy()

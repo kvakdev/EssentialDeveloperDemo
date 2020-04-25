@@ -90,26 +90,26 @@ class RequisitesViewModelTests: XCTestCase {
         XCTAssertEqual(modelSpy.callCount, 3)
     }
     ///Wrong test #1
-    func test_searchModeFinished_onKeyboardDisabled() {
-        let modelSpy = RequisitesModelSpy()
-        let dataSource = RequisitesTableDataSource()
-        let (ibanSection, ibanCellViewModel) = makeSection(.iban)
-        let (taxSection, taxNumberCellViewModel) = makeSection(.taxNumber)
-        let textSection = makeSection(.text).0
-        let sections = [ibanSection,
-                        taxSection,
-                        textSection]
-        
-        dataSource.setSections(sections)
-        let (sut, _) = makeSUT(dataSource, model: modelSpy)
-        ibanCellViewModel.handleTapAction()
-        ibanCellViewModel.handleReturnTap()
-        
-        guard case .all = dataSource.mode else {
-            XCTFail("wrong mode after keyboard return")
-            return
-        }
-    }
+//    func test_searchModeFinished_onKeyboardDisabled() {
+//        let modelSpy = RequisitesModelSpy()
+//        let dataSource = RequisitesTableDataSource()
+//        let (ibanSection, ibanCellViewModel) = makeSection(.iban)
+//        let (taxSection, taxNumberCellViewModel) = makeSection(.taxNumber)
+//        let textSection = makeSection(.text).0
+//        let sections = [ibanSection,
+//                        taxSection,
+//                        textSection]
+//
+//        dataSource.setSections(sections)
+//        let (sut, _) = makeSUT(dataSource, model: modelSpy)
+//        ibanCellViewModel.handleTapAction()
+//        ibanCellViewModel.handleReturnTap()
+//
+//        guard case .all = dataSource.mode else {
+//            XCTFail("wrong mode after keyboard return")
+//            return
+//        }
+//    }
     
     private func modeChangesAfterCallback(with requisiteType: RequisiteType) -> RequisitesPaymentViewModel.Mode {
         let (searchSection, searchCellViewModel) = makeSection(requisiteType)

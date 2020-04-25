@@ -27,8 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ibanSection = RequisitesSectionViewModel([ibanCellViewModel], type: .iban)
         let taxCellViewModel = RequisitesCellViewModel(model.taxNumberModel)
         let taxSection = RequisitesSectionViewModel([taxCellViewModel], type: .taxNumber)
+        let commentCellModel = model.commentModel
+        let commentCellViewModel = RequisitesCellViewModel(commentCellModel)
+        let bankCellModel = model.bankNameModel
+        let bankCellViewModel = RequisitesCellViewModel(bankCellModel)
+        let textSection = RequisitesSectionViewModel([bankCellViewModel, commentCellViewModel], type: .text)
         let searchSection = RequisitesSectionViewModel([], type: .search)
-        dataSource.setSections([ibanSection, taxSection, searchSection])
+        dataSource.setSections([ibanSection, taxSection, textSection, searchSection])
         
         let vm = RequisitesPaymentViewModel(dataSource, model: model)
         [ibanCellViewModel, taxCellViewModel].forEach({ cellVM in

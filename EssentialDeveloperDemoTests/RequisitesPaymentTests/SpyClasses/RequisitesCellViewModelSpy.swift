@@ -12,13 +12,10 @@ import RxCocoa
 
 class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
     let isKeyboardEnabled: PublishSubject<Bool> = .init()
-    
-    func handleReturnTap() {}
-    
+    let autoCompleteText: PublishSubject<String> = .init()
+    let text: BehaviorRelay<String> = .init(value: "")
+    let errorText: PublishSubject<String?> = .init()
     var title: String = ""
-    var autoCompleteText: PublishSubject<String> = .init()
-    var text: BehaviorRelay<String> = .init(value: "")
-    var errorText: PublishSubject<String?> = .init()
     
     var didCallTextChanged: ((String) -> Void)?
     
@@ -26,7 +23,6 @@ class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
         didCallTextChanged?(text)
     }
     
-    func handleTapAction() {
-        
-    }
+    func handleReturnTap() {}
+    func handleTapAction() {}
 }
