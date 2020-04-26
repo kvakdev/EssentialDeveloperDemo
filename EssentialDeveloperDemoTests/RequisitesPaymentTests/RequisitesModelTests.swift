@@ -19,6 +19,14 @@ class RequisitesModelTests: XCTestCase {
         XCTAssertEqual(sut.taxNumberModel.text.value, "20")
     }
     
+    func test_sutTogglesIsLoading_whenQueringBankName() {
+        let sut = makeSUT()
+        let resultBag = ResultBag(sut.isLoading)
+        sut.didSelect(Item(id: 0, iban: "123", taxNumber: nil, title: nil))
+        wait(for: 2.5)
+        XCTAssertEqual(resultBag.values, [true, false])
+    }
+    
     func makeSUT() -> RequisitesModel {
         return RequisitesModel()
     }

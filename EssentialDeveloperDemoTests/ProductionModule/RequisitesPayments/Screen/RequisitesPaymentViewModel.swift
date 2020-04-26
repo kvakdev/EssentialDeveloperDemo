@@ -106,7 +106,7 @@ class RequisitesPaymentViewModel: BaseViewModel, RequisitesPaymentViewModelProto
         self._searchDisposeBag = .init()
         self._dataSource.setSearchSection([])
         self._dataSource.mode = .all
-        self.events.onNext(.reloadTableView)
+        self.events.onNext(.reloadSections(_dataSource.sectionToReload()))
     }
     
     private func handleSelection(_ item: Item) {

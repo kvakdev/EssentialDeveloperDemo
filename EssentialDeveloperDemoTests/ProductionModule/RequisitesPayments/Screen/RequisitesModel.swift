@@ -20,6 +20,11 @@ class RequisitesModel: RequisitesModelProtocol {
     let commentModel = TextCellModel(validator: Validator(), title: "Comment")
     let bankNameModel = TextCellModel(validator: Validator(), title: "Bank name")
     
+    let error: PublishSubject<Error> = .init()
+    let isLoading: PublishSubject<Bool> = .init()
+    
+    private var _bankDisposeBag = DisposeBag()
+    
     func didSelect(_ item: Item) {
         if let iban = item.iban {
             ibanModel.text.accept(iban)
@@ -40,13 +45,27 @@ class RequisitesModel: RequisitesModelProtocol {
     }
     
     private func tryGetBankName(_ iban: String) {
+        self.isLoading.onNext(true)
+        _bankDisposeBag = .init()
         
+        getBankName(iban).do(onSuccess: { [weak self] _ in
+            self?.isLoading.onNext(false)
+        }, onError: { [weak self] _ in
+             self?.isLoading.onNext(false)
+        }).subscribe(onSuccess: { [weak self] value in
+            guard let bankName = value else { return }
+            
+            self?.bankNameModel.text.accept(bankName)
+        }, onError: { [weak self] error in
+            self?.error.onNext(error)
+        }).disposed(by: _bankDisposeBag)
     }
     
     private func getBankName(_ iban: String) -> Single<String?> {
         return Observable.create { observer -> Disposable in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 observer.onNext("Big Bank Name")
+                observer.onCompleted()
             }
             return Disposables.create()
         }.asSingle()

@@ -15,6 +15,7 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
         super.viewDidLoad()
         
         setupSubviews()
+        self.title = "Payment requisites"
     }
     
     fileprivate func setupSubviews() {
@@ -28,17 +29,25 @@ class RequisitesViewController<T: RequisitesPaymentViewModelProtocol>: BaseVC<T>
     override func setup(_ viewModel: T) {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
         
         viewModel.events.subscribe(onNext: { [weak self] event in
             switch event {
             case .reloadTableView:
                 self?.tableView.reloadData()
             case .reloadSections(let sections):
-                guard viewModel.dataSource.numberOfSections() > sections.max() ?? 0 else { return }
-                let set = IndexSet.init(sections)
-                self?.tableView.reloadSections(set, with: .automatic)
+                self?.reloadTableView(sections: sections)
             }
         }).disposed(by: self.disposeBag)
+    }
+
+    private func reloadTableView(sections: [Int]) {
+        let totalSections =  self.viewModel?.dataSource.numberOfSections() ?? 0
+        guard totalSections > sections.max() ?? 0 else { return }
+        let set = IndexSet.init(sections)
+        tableView.beginUpdates()
+        tableView.reloadSections(set, with: .automatic)
+        tableView.endUpdates()
     }
     
 //MARK: UITableViewDataSource
