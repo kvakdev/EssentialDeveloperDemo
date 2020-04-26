@@ -50,6 +50,8 @@ public class RequisiteCell: UITableViewCell {
         
         inputTextField.keyboardType = .default
         inputTextField.inputAccessoryView = nil
+        inputTextField.borderStyle = .roundedRect
+        inputTextField.delegate = self
         
         inputTextField.translatesAutoresizingMaskIntoConstraints = false
         addSubview(inputTextField)
