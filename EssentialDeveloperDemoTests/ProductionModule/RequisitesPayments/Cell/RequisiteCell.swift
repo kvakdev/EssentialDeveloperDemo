@@ -35,6 +35,7 @@ public class RequisiteCell: UITableViewCell {
         super.prepareForReuse()
         
         _viewModelBag = DisposeBag()
+        errorLabel.text = ""
     }
     
     func setup() {
@@ -64,12 +65,15 @@ public class RequisiteCell: UITableViewCell {
         NSLayoutConstraint.activate(textFieldConstraints)
         
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.textColor = .red
+        errorLabel.font = .systemFont(ofSize: 15)
+        
         addSubview(errorLabel)
         let errorLabelConstraints = [
             errorLabel.topAnchor.constraint(equalTo: inputTextField.bottomAnchor, constant: 2),
             errorLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             errorLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         NSLayoutConstraint.activate(errorLabelConstraints)
         

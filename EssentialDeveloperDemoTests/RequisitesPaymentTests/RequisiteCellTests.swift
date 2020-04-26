@@ -58,6 +58,16 @@ class RequisiteCellTests: XCTestCase {
         
         XCTAssertEqual(sut.inputTextField.text, model.text.value)
     }
+    
+    func test_errorLabelIsEmpty_afterReuse() {
+        let model = RequisisteCellModelSpy()
+        let vm = RequisitesCellViewModel(model)
+        let (sut, _) = makeSUT(vm)
+        vm.errorText.onNext("error")
+        XCTAssertEqual(sut.errorLabel.text, "error")
+        sut.prepareForReuse()
+        XCTAssertEqual(sut.errorLabel.text, "")
+    }
     ///Wrong test #2
 //    func test_textFieldEndsEditing_onViewModelKeyboardEnabled() {
 //        let (sut, vm) = makeSUT()

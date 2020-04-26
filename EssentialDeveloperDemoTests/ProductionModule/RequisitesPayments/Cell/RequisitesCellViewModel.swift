@@ -32,6 +32,7 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     private let model: RequisitesCellModelProtocol
     private var callback: ((RequisiteType) -> Void)?
     private let disposeBag = DisposeBag()
+    private var tempText: String?
     
     init(_ model: RequisitesCellModelProtocol) {
         self.model = model
@@ -45,6 +46,8 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     }
     
     func didChangeText(_ text: String) {
+        tempText = text
+        
         do {
             try model.validateProgress(text)
             autoCompleteText.onNext(text)
@@ -56,6 +59,10 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     
     func handleReturnTap() {
         self.isKeyboardEnabled.onNext(false)
+        guard let text = tempText else { return }
+        
+        setText(text)
+        self.tempText = nil
     }
     
     func handleTapAction() {
