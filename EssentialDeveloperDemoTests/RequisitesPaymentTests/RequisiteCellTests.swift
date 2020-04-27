@@ -23,9 +23,9 @@ class RequisiteCellTests: XCTestCase {
     func test_sutChangesErrorText_onViewModelChangedError() {
         let (sut, vm) = makeSUT()
         XCTAssertEqual(sut.errorLabel.text, nil)
-        vm.errorText.onNext("<someError>")
+        vm.errorText.accept("<someError>")
         XCTAssertEqual(sut.errorLabel.text, "<someError>")
-        vm.errorText.onNext(nil)
+        vm.errorText.accept(nil)
         XCTAssertEqual(sut.errorLabel.text, nil)
     }
     
@@ -63,7 +63,7 @@ class RequisiteCellTests: XCTestCase {
         let model = RequisisteCellModelSpy()
         let vm = RequisitesCellViewModel(model)
         let (sut, _) = makeSUT(vm)
-        vm.errorText.onNext("error")
+        vm.errorText.accept("error")
         XCTAssertEqual(sut.errorLabel.text, "error")
         sut.prepareForReuse()
         XCTAssertEqual(sut.errorLabel.text, "")

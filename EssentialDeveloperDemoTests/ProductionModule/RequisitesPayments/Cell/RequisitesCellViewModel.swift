@@ -14,7 +14,7 @@ protocol RequisitesCellViewModelProtocol {
     var title: String { get }
     var text: BehaviorRelay<String> { get }
     var autoCompleteText: PublishSubject<String> { get }
-    var errorText: PublishSubject<String?> { get }
+    var errorText: BehaviorRelay<String?> { get }
     var isKeyboardEnabled: PublishSubject<Bool> { get }
     
     func didChangeText(_ text: String)
@@ -26,7 +26,7 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
     var title: String { model.requisiteTitle }
     let text: BehaviorRelay<String> = .init(value: "")
     var autoCompleteText: PublishSubject<String> = .init()
-    let errorText: PublishSubject<String?> = .init()
+    let errorText: BehaviorRelay<String?> = .init(value: nil)
     let isKeyboardEnabled: PublishSubject<Bool> = .init()
     
     private let model: RequisitesCellModelProtocol
@@ -51,9 +51,9 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
         do {
             try model.validateProgress(text)
             autoCompleteText.onNext(text)
-            errorText.onNext(nil)
+            errorText.accept(nil)
         } catch {
-            errorText.onNext(error.localizedDescription)
+            errorText.accept(error.localizedDescription)
         }
     }
     
@@ -84,9 +84,9 @@ class RequisitesCellViewModel: NSObject, RequisitesCellViewModelProtocol {
         self.text.accept(text)
         do {
             try self.model.validateFinal(text)
-            errorText.onNext(nil)
+            errorText.accept(nil)
         } catch {
-            errorText.onNext(error.localizedDescription)
+            errorText.accept(error.localizedDescription)
         }
     }
 }

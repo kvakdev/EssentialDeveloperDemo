@@ -30,8 +30,8 @@
             filePath = "EssentialDeveloperDemoTests/RequisitesPaymentTests/RequisitesPaymentCellViewModelTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "RequisitesPaymentCellViewModelTests"
             landmarkType = "3">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "EssentialDeveloperDemoTests/RequisitesPaymentTests/RequisitesPaymentCellViewModelTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "test_didEndEditingCalled_afterKeyboardDismissal()"
             landmarkType = "7">
          </BreakpointContent>

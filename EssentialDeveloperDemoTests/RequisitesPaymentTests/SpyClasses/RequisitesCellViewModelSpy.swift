@@ -14,7 +14,7 @@ class RequisitesCellViewModelSpy: RequisitesCellViewModelProtocol {
     let isKeyboardEnabled: PublishSubject<Bool> = .init()
     let autoCompleteText: PublishSubject<String> = .init()
     let text: BehaviorRelay<String> = .init(value: "")
-    let errorText: PublishSubject<String?> = .init()
+    let errorText: BehaviorRelay<String?> = .init(value: "")
     var title: String = ""
     
     var didCallTextChanged: ((String) -> Void)?

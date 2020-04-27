@@ -46,8 +46,11 @@ class RequisitesPaymentCellViewModelTests: XCTestCase {
         let model = RequisitesCellModel(.text, validator: validator)
         let sut = makeSUT(model)
         let resultBag = ResultBag(sut.errorText)
-        sut.didChangeText("<some value>")
+        //first validation is launched on set text
         XCTAssertEqual(resultBag.values, [messsage])
+        sut.didChangeText("<some value>")
+        //first validation is launched on didChangeText
+        XCTAssertEqual(resultBag.values, [messsage, messsage])
     }
     
     func test_didEndEditingCalled_afterKeyboardDismissal() {
